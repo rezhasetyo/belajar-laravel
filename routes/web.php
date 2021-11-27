@@ -14,9 +14,10 @@ use App\Http\Controllers\HutangController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
+// Route::get('/', function () {
+//     return view('home');
+// });
 Route::resource('/hutang', HutangController::class);
 
+Auth::routes();
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
