@@ -7,6 +7,12 @@ use App\Models\Hutang;
 
 class HutangController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    
     public function index(){
         $datas = Hutang::all();
         return view('hutang.data', compact('datas'));
