@@ -14,6 +14,19 @@
                 placeholder="Input Nama Lengkap">
             </div>
             <div class="form-group">
+                <label for="jenis_kelamin">Jenis Kelamin</label>
+                <select name="jenis_kelamin" class="form-control" id="jenis_kelamin">
+                    <!-- <option>---Pilih Jenis Kelamin---</option> -->
+                    <option value="Laki-laki" {{ $model->jenis_kelamin == "Laki-laki" ? 'selected' : ''}}>Laki-Laki</option>
+                    <option value="Perempuan" {{ $model->jenis_kelamin == "Perempuan" ? 'selected' : ''}}>Perempuan</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="tanggal_lahir">Tanggal Lahir</label>
+                <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control" 
+                placeholder="Inputkan Tanggal Lahir" value="{{ $model->tanggal_lahir }}">
+            </div>
+            <div class="form-group">
                 <label for="alamat">Alamat</label>
                 <textarea class="form-control" name="alamat" rows="2" 
                 placeholder="Inputkan Alamat Lengkap">{{ $model->alamat }}</textarea>

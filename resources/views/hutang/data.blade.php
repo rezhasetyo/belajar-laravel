@@ -2,16 +2,16 @@
 @section('content')
 
 <div class="jumbotron">
-<div class="col-6">
-    <br><h3>Daftar Hutang</h3>
+<div class="col-8">
+    <br><h3 style="text-align:center;">Daftar Hutang</h3>
     <a href="{{ url('hutang/create') }}" class="btn btn-primary float-right mb-2">Tambah</a>
     <table class="table table-light mt-4">
         <thead class="table-dark">
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nama</th>
-                <!-- <th scope="col">Tanggal Lahir</th> -->
-                <!-- <th scope="col">Jenis Kelamin</th> -->
+                <th scope="col">Jenis Kelamin</th>
+                <th scope="col">Tanggal Lahir</th>
                 <th scope="col">Alamat</th>
                 <th scope="col">Hoetang</th>
                 <th scope="col" colspan="2"><div align="center">Aksi</div></th>
@@ -23,9 +23,9 @@
             <tr>
                 <td scope="row" >{{ $loop->iteration }}</td>
                 <td>{{ $value->nama }}</td>
+                <td>{{ $value->jenis_kelamin }}</td>
+                <td>{{ $value->tanggal_lahir }}</td>
                 <td>{{ $value->alamat }}</td>
-                <!-- <td></td> -->
-                <!-- <td></td> -->
                 <td>{{ $value->hutang }}</td>
                 <td align="right">
                     <a class="btn btn-info btn-sm" href="{{ url( 'hutang/' .$value->id. '/edit' ) }}">

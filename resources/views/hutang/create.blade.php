@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="jumbotron">
-    <div class="col-8">
+    <div class="col-6">
     <br><h3>Tambah Hutang</h3>
 
         <form method="POST" action="{{ url('hutang') }}">
@@ -11,6 +11,19 @@
                 <label for="nama">Nama</label>
                 <input type="text" id="nama" name="nama" class="form-control" 
                 placeholder="Input Nama Lengkap">
+            </div>
+            <div class="form-group">
+                <label for="jenis_kelamin">Jenis Kelamin</label>
+                <select name="jenis_kelamin" class="form-control" id="jenis_kelamin">
+                    <option>--Pilih Jenis Kelamin--</option>
+                    <option value="Laki-laki">Laki-Laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="tanggal_lahir">Tanggal Lahir</label>
+                <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control" 
+                placeholder="Inputkan Tanggal Lahir">
             </div>
             <div class="form-group">
                 <label for="alamat">Alamat</label>

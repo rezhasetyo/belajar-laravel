@@ -18,6 +18,8 @@ class CreateHutangTable extends Migration
             $table->increments('id');
             $table->string('nama');
             $table->text('alamat');
+            $table->date('tanggal_lahir');
+            $table->string('jenis_kelamin');
             $table->integer('hutang');
             $table->timestamps();
         });
