@@ -1,7 +1,7 @@
 <!-- HEADER -->
 <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Belajar Laravel 8</title>
+    <title>Laravel Jumbotron</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Menyisipkan Bootstrap -->

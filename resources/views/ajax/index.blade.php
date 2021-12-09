@@ -26,7 +26,7 @@
     <table id="ajax" class="table table-light mt-4">
         <thead class="table-dark">
             <tr>
-                <th scope="col">#</th>
+                <th scope="col">No</th>
                 <th scope="col">Nama</th>
                 <th scope="col">Jenis Kelamin</th>
                 <th scope="col">Tanggal Lahir</th>
