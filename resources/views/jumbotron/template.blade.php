@@ -6,6 +6,7 @@
 
     <!-- Menyisipkan Bootstrap -->
     <link rel="stylesheet" href="{{asset('template')}}/css/bootstrap.min.css" />
+    @stack('css')
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <a class="navbar-brand">Belajar Laravel 8</a>
@@ -25,6 +26,9 @@
                           </li>
                           <li class="nav-item">
                             <a class="nav-link" href="/hutang">Data</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/ajax">Ajax</a>
                           </li>
                         </ul>
                     </ul>
@@ -80,7 +84,7 @@
     <!-- Pertama load jQuery, kemudian Bootstrap JS -->
     <script src="{{asset('template')}}/js/jquery-3.4.1.slim.min.js"></script>
     <script src="{{asset('template')}}/js/bootstrap.min.js"></script>
-	
+	@stack('javascript')
 	
 	<nav class="navbar navbar-expand-md navbar-dark fixed-bottom bg-dark">
       <div class="container">
