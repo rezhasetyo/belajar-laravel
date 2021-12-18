@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="jumbotron">
-<div class="col-8">
+<div class="col-9">
     <br><h3 style="text-align:center;">Daftar Hutang</h3>
     <a href="{{ url('laravel/create') }}" class="btn btn-primary float-right mb-2">Tambah</a>
     <table class="table table-light mt-4">

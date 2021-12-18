@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HutangController;
-use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\LaravelController;
 
 /*
@@ -18,10 +17,10 @@ use App\Http\Controllers\LaravelController;
 
 // Route::get('/', function () {    return view('welcome'); });
 
-
-// Route::resource('/hutang', HutangController::class);
-Route::resource('/ajax', AjaxController::class);
+// Route hutang -> AJAX
 Route::resource('/laravel', LaravelController::class);
+Route::get('/hutang', [HutangController::class, 'index'])->name('ajax.index');          // name adalah route di jquery
+Route::get('/hutang/json', [HutangController::class, 'data'])->name('ajax.data');
 
 Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

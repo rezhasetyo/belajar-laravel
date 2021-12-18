@@ -13,9 +13,9 @@
         <br><h3 style="text-align:center;">Daftar Hutang</h3>
         <!-- <a href="{{ url('hutang/create') }}" class="btn btn-primary float-right mb-2">Tambah</a> -->
         <table id="ajax" class="table table-light mt-4">
-            <thead class="table-dark" style="align-text:center;">
+            <thead class="table-dark">
                 <tr>
-                    <!-- <th scope="col">No</th> -->
+                    <th scope="col">No</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Jenis Kelamin</th>
                     <th scope="col">Tanggal Lahir</th>
@@ -24,7 +24,31 @@
                     <!-- <th scope="col" colspan="2"><div align="center">Aksi</div></th> -->
                 </tr>
         </thead>
-
+        
+        <tbody>
+            @foreach($ajax as $key=>$value)
+            <tr>
+                <td scope="row" >{{ $loop->iteration }}</td>
+                <td>{{ $value->nama }}</td>
+                <td>{{ $value->jenis_kelamin }}</td>
+                <td>{{ $value->tanggal_lahir }}</td>
+                <td>{{ $value->alamat }}</td>
+                <td>{{ $value->hutang }}</td>
+                <!-- <td align="right">
+                    <a class="btn btn-info btn-sm" href="{{ url( 'hutang/' .$value->id. '/edit' ) }}">
+                        Edit
+                    </a>
+                </td>
+                <td align="left">
+                    <form action="{{ url('hutang/'.$value->id) }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="_method" value="Delete">
+                        <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                    </form>
+                </td> -->
+            </tr>
+            @endforeach
+        </tbody>
     </table>
 </div>
 @endsection
@@ -36,20 +60,7 @@
 <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('#ajax').DataTable({
-            processing: true,
-            serverSide: true,
-            "order": [[ 0, "desc" ]],
-            ajax: '{!! route('ajax.index') !!}', // memanggil route yang menampilkan data json       // ganti 'index' setelah refac
-            columns: [ // mengambil & menampilkan kolom sesuai tabel database
-                // {data: 'DT_RowIndex',name: 'DT_RowIndex'},
-                {data: 'nama',name: 'nama'},
-                {data: 'jenis_kelamin',name: 'jenis_kelamin'},
-                {data: 'tanggal_lahir',name: 'tanggal_lahir'},
-                {data: 'alamat',name: 'alamat'},
-                {data: 'hutang',name: 'hutang' }
-                ],
-        });
+        $('#ajax').DataTable();
     } );
 </script>
 @endpush

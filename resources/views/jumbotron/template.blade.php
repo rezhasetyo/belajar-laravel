@@ -28,7 +28,7 @@
                             <a class="nav-link" href="/laravel">Data</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="/ajax">Ajax</a>
+                            <a class="nav-link" href="/hutang">Ajax</a>
                           </li>
                         </ul>
                     </ul>
