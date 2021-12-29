@@ -14,7 +14,7 @@
                 <th scope="col">Tanggal Lahir</th>
                 <th scope="col">Alamat</th>
                 <th scope="col">Hoetang</th>
-                <th scope="col" colspan="2"><div align="center">Aksi</div></th>
+                <th scope="col" ><div align="center">Aksi</div></th>
             </tr>
         </thead>
         
@@ -27,23 +27,58 @@
                 <td>{{ $value->tanggal_lahir }}</td>
                 <td>{{ $value->alamat }}</td>
                 <td>{{ $value->hutang }}</td>
-                <td align="right">
-                    <a class="btn btn-info btn-sm" href="{{ url( 'laravel/' .$value->id. '/edit' ) }}">
-                        Edit
-                    </a>
-                </td>
-                <td align="left">
+                <td align="center">
                     <form action="{{ url('laravel/'.$value->id) }}" method="POST">
                     @csrf
+                        <!-- Button Edit -->
+                        <a class="btn btn-info btn-sm" href="{{ url( 'laravel/' .$value->id. '/edit' ) }}">Edit</a>
+                        
+                        <!-- Button Delete
                         <input type="hidden" name="_method" value="Delete">
-                        <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                        <button class="btn btn-danger btn-sm" type="submit">Delete</button> -->
+
+                        <!-- Button Modal Delete -->
+                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal{{ $value->id }}">
+                            Delete
+                        </button>
                     </form>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
+
+<!-- Modal -->
+@foreach($datas as $key=>$value)
+<div class="modal fade" id="exampleModal{{ $value->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Hapus Hutang !</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Apakah anda yakin ingin menghapus data ini?
+      </div>
+      <div class="modal-footer">
+        <form action="{{ url('laravel/'.$value->id) }}" method="POST">
+        @csrf
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <input type="hidden" name="_method" value="Delete">
+            <button class="btn btn-danger" type="submit">Delete</button>
+        </form>
+        </div>
+    </div>
+  </div>
 </div>
+@endforeach
+
+
+</div>
+</div>
+
 
 
 
