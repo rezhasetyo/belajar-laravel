@@ -23,7 +23,10 @@ class HutangSeeder extends Seeder
                         'alamat' => $faker->streetAddress(),
                         'tanggal_lahir' => $faker->dateTime(),
                         'jenis_kelamin' => $faker->randomElement(['Laki-laki', 'Perempuan']),
-                        'hutang'=>$faker->numberBetween($min = 5000, $max = 10000),
+                        // 'hutang'=>$faker->numberBetween($min = 5000, $max = 10000),
+                        'hutang' => $faker->randomElement(['3000', '4000', '5000', '6000', 
+                                                            '7000', '8000', '9000', '10000']),
+
                         'created_at'=>date('Y-m-d H:i:s'),
                         'updated_at'=>date('Y-m-d H:i:s')]);
                     }

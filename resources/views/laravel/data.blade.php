@@ -13,8 +13,8 @@
                 <th scope="col">Jenis Kelamin</th>
                 <th scope="col">Tanggal Lahir</th>
                 <th scope="col">Alamat</th>
-                <th scope="col">Hoetang</th>
-                <th scope="col" ><div align="center">Aksi</div></th>
+                <th scope="col">Hutang</th>
+                <th scope="col" style="width:15%;" ><div align="center">Aksi</div></th>
             </tr>
         </thead>
         

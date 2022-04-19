@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HutangController;
 use App\Http\Controllers\LaravelController;
+use App\Http\Controllers\ArticleController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +26,9 @@ Route::get('/hutang/json', [HutangController::class, 'data'])->name('ajax.data')
 
 Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// Resource Route for article.
+Route::resource('articles', ArticleController::class);
+// Route for get articles for yajra post request.
+Route::get('get-articles', [ArticleController::class, 'getArticles'])->name('get-articles');

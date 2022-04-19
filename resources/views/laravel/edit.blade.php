@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="jumbotron">
-    <div class="col-8">
+    <div class="col-6">
     <br><h3>Edit Hutang</h3>
 
         <form method="POST" action="{{ url('laravel/' .$model->id) }}">
