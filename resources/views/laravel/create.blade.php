@@ -35,7 +35,15 @@
                 <input type="number" id="hutang" class="form-control" name="hutang" 
                 placeholder="Jumlah Hutang" >
             </div>
-
+            <div class="form-group">
+                <label for="cicilan_id">Cicilan</label>
+                <select name="cicilan_id" class="form-control" id="cicilan_id">
+                    <option>-- Pilih Cicilan --</option>
+                    @foreach ($cicilan as $item)
+                        <option value="{{ $item->id }}">{{ $item->waktu }}</option>
+                    @endforeach
+                </select>
+            </div>
       
       <button type="submit" class="btn btn-primary">Submit</button>
       <a href="/laravel"><button type="button" class="btn btn-danger">Batal</button></a>

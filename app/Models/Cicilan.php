@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Cicilan extends Model
 {
     use HasFactory;
-    protected $table = "cicilan";   // RELASI   : Yang tidak ada foreign key nya 'belongsTo'
+    protected $table = "cicilan";
 
     // Relasi One to Many
     public function hutang() {
-        return $this->belongsTo(Hutang::class);     }
+        return $this->hasMany(Hutang::class);     }
 }

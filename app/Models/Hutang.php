@@ -12,5 +12,5 @@ class Hutang extends Model
 
     // Relasi One to Many
     public function cicilan() {
-        return $this->hasMany(Cicilan::class);     }// Yang tidak ada foreign key nya (belongsTo)
+        return $this->belongsTo(Cicilan::class);     }
 }

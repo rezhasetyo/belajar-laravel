@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Hutang;
 
 class LaravelController extends Controller
@@ -20,7 +21,8 @@ class LaravelController extends Controller
 
     public function create(){   
         $model = new Hutang;
-        return view('laravel.create', compact('model'));
+        $cicilan = DB::table('cicilan')->get();
+        return view('laravel.create', compact('model', 'cicilan'));
     }
 
     public function store(Request $request){   
@@ -30,13 +32,15 @@ class LaravelController extends Controller
         $model->alamat = $request->alamat;
         $model->tanggal_lahir = $request->tanggal_lahir;
         $model->hutang = $request->hutang;
+        $model->cicilan_id = $request->cicilan_id;
         $model->save();
         return redirect('laravel');
     }
 
     public function edit($id){
         $model = Hutang::find($id);
-        return view('laravel.edit', compact('model'));
+        $cicilan = DB::table('cicilan')->get();
+        return view('laravel.edit', compact('model', 'cicilan'));
     }
 
     public function update(Request $request, $id){   
@@ -46,6 +50,7 @@ class LaravelController extends Controller
         $model->alamat = $request->alamat;
         $model->tanggal_lahir = $request->tanggal_lahir;
         $model->hutang = $request->hutang;
+        $model->cicilan_id = $request->cicilan_id;
         $model->save();
         return redirect('laravel');
     }

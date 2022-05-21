@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="jumbotron">
-<div class="col-9">
+<div class="col-10">
     <br><h3 style="text-align:center;">Daftar Hutang</h3>
     <a href="{{ url('laravel/create') }}" class="btn btn-primary float-right mb-2">Tambah</a>
     <table class="table table-light mt-4">
@@ -14,6 +14,7 @@
                 <th scope="col">Tanggal Lahir</th>
                 <th scope="col">Alamat</th>
                 <th scope="col">Hutang</th>
+                <th scope="col">Cicilan</th>
                 <th scope="col" style="width:15%;" ><div align="center">Aksi</div></th>
             </tr>
         </thead>
@@ -27,6 +28,7 @@
                 <td>{{ $value->tanggal_lahir }}</td>
                 <td>{{ $value->alamat }}</td>
                 <td>{{ $value->hutang }}</td>
+                <td>{{ $value->cicilan->waktu }}</td>
                 <td align="center">
                     <form action="{{ url('laravel/'.$value->id) }}" method="POST">
                     @csrf
