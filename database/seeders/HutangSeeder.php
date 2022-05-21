@@ -26,7 +26,7 @@ class HutangSeeder extends Seeder
                         // 'hutang'=>$faker->numberBetween($min = 5000, $max = 10000),
                         'hutang' => $faker->randomElement(['3000', '4000', '5000', '6000', 
                                                             '7000', '8000', '9000', '10000']),
-
+                        'cicilan_id' => $faker->randomElement([1, 2, 3, 4]),
                         'created_at'=>date('Y-m-d H:i:s'),
                         'updated_at'=>date('Y-m-d H:i:s')]);
                     }

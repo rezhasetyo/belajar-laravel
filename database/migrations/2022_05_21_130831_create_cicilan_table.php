@@ -15,8 +15,8 @@ class CreateCicilanTable extends Migration
     {
         Schema::create('cicilan', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->time('waktu')->nullable();
+            $table->string('waktu');
+            // $table->time('waktu')->nullable();
             $table->timestamps();
         });
     }
