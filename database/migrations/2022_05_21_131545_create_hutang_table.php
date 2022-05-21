@@ -21,6 +21,8 @@ class CreateHutangTable extends Migration
             $table->date('tanggal_lahir');
             $table->string('jenis_kelamin');
             $table->integer('hutang');
+            $table->unsignedBigInteger('cicilan_id');     
+            $table->foreign('cicilan_id')->references('id')->on('cicilan');
             $table->timestamps();
         });
     }
