@@ -15,6 +15,7 @@
                 <th scope="col">Alamat</th>
                 <th scope="col">Hutang</th>
                 <th scope="col">Cicilan</th>
+                <!-- <th scope="col">Jaminan</th> -->
                 <th scope="col" style="width:15%;" ><div align="center">Aksi</div></th>
             </tr>
         </thead>
@@ -29,15 +30,14 @@
                 <td>{{ $value->alamat }}</td>
                 <td>{{ $value->hutang }}</td>
                 <td>{{ $value->cicilan->waktu }}</td>
+                <!-- <td>
+                  <img src="{{asset('jaminan/'. $value->jaminan)}}" alt="">
+                </td> -->
                 <td align="center">
                     <form action="{{ url('laravel/'.$value->id) }}" method="POST">
                     @csrf
                         <!-- Button Edit -->
                         <a class="btn btn-info btn-sm" href="{{ url( 'laravel/' .$value->id. '/edit' ) }}">Edit</a>
-                        
-                        <!-- Button Delete
-                        <input type="hidden" name="_method" value="Delete">
-                        <button class="btn btn-danger btn-sm" type="submit">Delete</button> -->
 
                         <!-- Button Modal Delete -->
                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal{{ $value->id }}">

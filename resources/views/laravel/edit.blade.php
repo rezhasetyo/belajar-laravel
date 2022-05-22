@@ -5,7 +5,7 @@
     <div class="col-6">
     <br><h3>Edit Hutang</h3>
 
-        <form method="POST" action="{{ url('laravel/' .$model->id) }}">
+        <form method="POST" action="{{ url('laravel/' .$model->id) }}" enctype="multipart/form-data">
         @csrf
         <input type="hidden" name="_method" value="PATCH">
             <div class="form-group">
@@ -48,6 +48,11 @@
                         @endif
                     @endforeach
                 </select>
+            </div>
+            <div class="form-group">
+                <label for="hutang">Upload Jaminan</label><br>
+                <img src="{{asset('jaminan/'. $model->jaminan)}}" style="height:300px;">
+                <input type="file" name="jaminan" class="form-control">
             </div>
       
       <button type="submit" class="btn btn-primary">Submit</button>
