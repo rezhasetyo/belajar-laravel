@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Hutang;
 
 class LaravelController extends Controller
@@ -34,6 +35,7 @@ class LaravelController extends Controller
         $model->hutang = $request->hutang;
         $model->cicilan_id = $request->cicilan_id;
         $model->save();
+        Alert::success('Sukses', 'Berhasil Menyimpan Data');
         return redirect('laravel');
     }
 
@@ -42,7 +44,7 @@ class LaravelController extends Controller
         $cicilan = DB::table('cicilan')->get();
         return view('laravel.edit', compact('model', 'cicilan'));
     }
-
+    
     public function update(Request $request, $id){   
         $model = Hutang::find($id);
         $model->nama = $request->nama;
@@ -52,12 +54,14 @@ class LaravelController extends Controller
         $model->hutang = $request->hutang;
         $model->cicilan_id = $request->cicilan_id;
         $model->save();
+        Alert::success('Sukses', 'Berhasil Mengupdate Data');
         return redirect('laravel');
     }
 
     public function destroy($id){
         $model = Hutang::find($id);
         $model->delete();
+        Alert::warning('Sukses', 'Berhasil Menghapus Data');
         return redirect('laravel');
     }
 }

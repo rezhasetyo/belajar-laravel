@@ -85,6 +85,7 @@
     <script src="{{asset('template')}}/js/jquery-3.4.1.slim.min.js"></script>
     <script src="{{asset('template')}}/js/bootstrap.min.js"></script>
 	@stack('javascript')
+    @include('sweetalert::alert')
 	
 	<nav class="navbar navbar-expand-md navbar-dark fixed-bottom bg-dark">
       <div class="container">
