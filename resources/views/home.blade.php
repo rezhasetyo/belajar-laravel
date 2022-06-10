@@ -3,7 +3,7 @@
 @section('content')
 <div class="jumbotron">
         <h1 class="display-4">Selamat Datang</h1>
-        <p class="lead">Mari kita Belajar Laravel 8</p>
+        <p class="lead">Mari kita Belajar Framework Laravel</p>
         <hr class="my-4">
         <p>ini adalah komponen <strong>jumbotron</strong> yang ada pada bootstrap</p><br>
          <a class="btn btn-success btn-lg" href="{{ url('laravel/create') }}" role="button">Tambah Data</a>

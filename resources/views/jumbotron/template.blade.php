@@ -1,15 +1,18 @@
 <!-- HEADER -->
 <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Laravel Jumbotron</title>
+    <title>Belajar Framework Laravel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ICON -->
+    <link href="{{ asset('laravel.ico') }}" rel="SHORTCUT ICON"/>
 
     <!-- Menyisipkan Bootstrap -->
     <link rel="stylesheet" href="{{asset('template')}}/css/bootstrap.min.css" />
     @stack('css')
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand">Belajar Laravel 8</a>
+      <a class="navbar-brand">Belajar Laravel</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -28,7 +31,7 @@
                             <a class="nav-link" href="/laravel">Data</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="/hutang">Ajax</a>
+                            <a class="nav-link" href="/hutang">Jquery</a>
                           </li>
                         </ul>
                     </ul>
