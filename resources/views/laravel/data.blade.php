@@ -13,7 +13,7 @@
                 <th scope="col">Jenis Kelamin</th>
                 <th scope="col">Tanggal Lahir</th>
                 <th scope="col">Alamat</th>
-                <th scope="col">Hutang</th>
+                <th scope="col" style="width:10%">Hutang</th>
                 <th scope="col">Cicilan</th>
                 <!-- <th scope="col">Jaminan</th> -->
                 <th scope="col" style="width:15%;" ><div align="center">Aksi</div></th>
@@ -28,7 +28,7 @@
                 <td>{{ $value->jenis_kelamin }}</td>
                 <td>{{ $value->tanggal_lahir }}</td>
                 <td>{{ $value->alamat }}</td>
-                <td>{{ $value->hutang }}</td>
+                <td>@currency($value->hutang)</td>
                 <td>{{ $value->cicilan->waktu }}</td>
                 <!-- <td>
                   <img src="{{asset('jaminan/'. $value->jaminan)}}" alt="">
