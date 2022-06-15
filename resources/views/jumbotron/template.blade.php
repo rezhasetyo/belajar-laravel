@@ -33,6 +33,9 @@
                           <li class="nav-item">
                             <a class="nav-link" href="/hutang">Jquery</a>
                           </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/user">Admin</a>
+                          </li>
                         </ul>
                     </ul>
 
