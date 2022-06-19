@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Hutang;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Hutang;
 use App\Http\Resources\HutangResource;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class ApiHutangController extends Controller
@@ -49,6 +50,63 @@ class ApiHutangController extends Controller
 
         return new HutangResource(true, 'Data Hutang Berhasil Ditambahkan!', $hutang);    //Return Response
     }
+
+    public function show(Hutang $hutang)    {
+        return new HutangResource(true, 'Data Hutang Ditemukan!', $hutang);   //Return Single Post as a Resource
+    }
+
+    public function update(Request $request, Hutang $hutang)    {
+        $validator = Validator::make($request->all(), [
+            'nama'              => 'required',
+            'jenis_kelamin'     => 'required',
+            'alamat'            => 'required',
+            'tanggal_lahir'     => 'required|date_format:Y-m-d',
+            'hutang'            => 'required|numeric',
+            'cicilan_id'        => 'required|numeric',
+            'jaminan'           => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', 
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+
+        if ($request->hasFile('jaminan')) {
+            $jaminan = $request->file('jaminan');
+            $jaminan->storeAs('public/jaminan', 
+                time(). '.' .$request->jaminan->extension()
+            );
+            Storage::delete('public/jaminan/'.$hutang->jaminan);
+            $hutang->update([
+                'nama'              => $request->nama,
+                'jenis_kelamin'     => $request->jenis_kelamin,
+                'alamat'            => $request->alamat,
+                'tanggal_lahir'     => $request->tanggal_lahir,
+                'hutang'            => $request->hutang,
+                'cicilan_id'        => $request->cicilan_id,
+                'jaminan'           => time(). '.' .$request->jaminan->extension(),
+            ]);
+        } else {
+            $hutang->update([
+                'nama'              => $request->nama,
+                'jenis_kelamin'     => $request->jenis_kelamin,
+                'alamat'            => $request->alamat,
+                'tanggal_lahir'     => $request->tanggal_lahir,
+                'hutang'            => $request->hutang,
+                'cicilan_id'        => $request->cicilan_id,
+            ]);
+        }
+
+        return new HutangResource(true, 'Data Hutang Berhasil Diubah!', $hutang);
+    }
+
+    public function destroy(Hutang $hutang)     {
+        Storage::delete('public/hutang/'.$hutang->jaminan);
+        $hutang->delete();
+        return new HutangResource(true, 'Data Hutang Berhasil Dihapus!', null);
+    }
+
+
+
 
 
 }
