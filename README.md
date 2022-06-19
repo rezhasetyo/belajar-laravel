@@ -1,7 +1,7 @@
 # Dokumentasi Belajar Framework Laravel
  
  ## Link Deploy Web
-<p>Untuk Link Demo : http://belajar-laravel-rezha.herokuapp.com</p>
+<p>Link Demo : http://belajar-laravel-rezha.herokuapp.com</p>
 <br>
 
 <p><b>Seeding Database</b></p>
@@ -10,5 +10,5 @@
 <br>
 
 <p><b>Link Dokumentasi API</b></p>
-<img src='public/postman.jpg' width="60%">
+<img src='public/postman.jpg' width="85%">
 

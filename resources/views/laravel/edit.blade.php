@@ -51,7 +51,7 @@
             </div>
             <div class="form-group">
                 <label for="hutang">Upload Jaminan</label><br>
-                <img src="{{asset('jaminan/'. $model->jaminan)}}" style="height:300px;">
+                <img src="{{asset('storage/jaminan/'. $model->jaminan)}}" style="height:300px;">
                 <input type="file" name="jaminan" class="form-control">
             </div>
       

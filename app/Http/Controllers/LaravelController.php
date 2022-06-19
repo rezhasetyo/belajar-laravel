@@ -37,7 +37,7 @@ class LaravelController extends Controller
         $model->cicilan_id = $request->cicilan_id;
 
         $namaJaminan = time(). '.' .$request->jaminan->extension();
-        $request->jaminan->move(public_path('jaminan'), $namaJaminan);
+        $request->jaminan->move(public_path('storage/jaminan'), $namaJaminan);
         $model->jaminan = $namaJaminan;
         
         $model->save();
@@ -62,7 +62,7 @@ class LaravelController extends Controller
             $model->cicilan_id = $request->cicilan_id;
 
             $namaJaminan = time(). '.' .$request->jaminan->extension();
-            $request->jaminan->move(public_path('jaminan'), $namaJaminan);
+            $request->jaminan->move(public_path('storage/jaminan'), $namaJaminan);
             $model->jaminan = $namaJaminan;
         }else{
             $model->nama = $request->nama;
