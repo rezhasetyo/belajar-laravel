@@ -10,13 +10,12 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nama</th>
-                <th scope="col">Jenis Kelamin</th>
-                <th scope="col">Tanggal Lahir</th>
                 <th scope="col">Alamat</th>
+                <th scope="col">Tanggal Hutang</th>
+                <th scope="col">Jatuh Tempo</th>
                 <th scope="col" style="width:10%">Hutang</th>
                 <th scope="col">Cicilan</th>
-                <!-- <th scope="col">Jaminan</th> -->
-                <th scope="col" style="width:15%;" ><div align="center">Aksi</div></th>
+                <th scope="col" style="width:20%;" ><div align="center">Aksi</div></th>
             </tr>
         </thead>
         
@@ -25,17 +24,17 @@
             <tr>
                 <td scope="row" >{{ $loop->iteration }}</td>
                 <td>{{ $value->nama }}</td>
-                <td>{{ $value->jenis_kelamin }}</td>
-                <td>{{ $value->tanggal_lahir }}</td>
                 <td>{{ $value->alamat }}</td>
+                <td>{{ showDateTime3($value -> created_at) }}</td>
+                <td></td>
                 <td>@currency($value->hutang)</td>
                 <td>{{ $value->cicilan->waktu }}</td>
-                <!-- <td>
-                  <img src="{{asset('jaminan/'. $value->jaminan)}}" alt="">
-                </td> -->
                 <td align="center">
                     <form action="{{ url('laravel/'.$value->id) }}" method="POST">
                     @csrf
+                        <!-- Button Detail -->
+                        <a class="btn btn-success btn-sm" href="#">Detail</a>
+
                         <!-- Button Edit -->
                         <a class="btn btn-info btn-sm" href="{{ url( 'laravel/' .$value->id. '/edit' ) }}">Edit</a>
 
