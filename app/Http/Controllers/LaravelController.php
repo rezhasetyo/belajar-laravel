@@ -39,10 +39,16 @@ class LaravelController extends Controller
         $namaJaminan = time(). '.' .$request->jaminan->extension();
         $request->jaminan->move(public_path('storage/jaminan'), $namaJaminan);
         $model->jaminan = $namaJaminan;
+
+        
         
         $model->save();
         Alert::success('Sukses', 'Berhasil Menyimpan Data');
         return redirect('laravel');
+    }
+
+    public function show($id){
+        //
     }
 
     public function edit($id){

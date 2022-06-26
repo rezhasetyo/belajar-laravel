@@ -10,5 +10,5 @@
 <br>
 
 <p><b>Link Dokumentasi API</b></p>
-<img src='public/postman.jpg' width="85%">
+<img src='public/postman.jpg' width="100%">
 
