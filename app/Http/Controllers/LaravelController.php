@@ -7,15 +7,14 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Hutang;
+use Carbon\Carbon;
 
 class LaravelController extends Controller
 {
-    public function __construct()
-    {
+    public function __construct()   {
         $this->middleware('auth')->except(['index']);
     }
 
-    
     public function index(){
         $datas = Hutang::all();
         return view('laravel.data', compact('datas'));
@@ -40,8 +39,26 @@ class LaravelController extends Controller
         $request->jaminan->move(public_path('storage/jaminan'), $namaJaminan);
         $model->jaminan = $namaJaminan;
 
-        
-        
+        // if($model->cicilan_id == 1){
+        //     $model->jatuhTempo = Carbon::now()->addMonth(6);
+        // }elseif($model->cicilan_id == 2) {
+        //     $model->jatuhTempo = Carbon::now()->addYear(1);
+        // }elseif($model->cicilan_id == 3) {
+        //     $model->jatuhTempo = Carbon::now()->addYear(2);
+        // }else{
+        //     $model->jatuhTempo = Carbon::now()->addYear(3);
+        // }
+
+        if($model->cicilan_id == 1){
+            $model->jatuhTempo = Carbon::parse($model->created_at)->addMonth(6)->format('d M Y');
+        }elseif($model->cicilan_id == 2) {
+            $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(1)->format('d M Y');
+        }elseif($model->cicilan_id == 3) {
+            $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(2)->format('d M Y');
+        }else{
+            $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(3)->format('d M Y');
+        }
+
         $model->save();
         Alert::success('Sukses', 'Berhasil Menyimpan Data');
         return redirect('laravel');
@@ -67,6 +84,16 @@ class LaravelController extends Controller
             $model->hutang = $request->hutang;
             $model->cicilan_id = $request->cicilan_id;
 
+            if($model->cicilan_id == 1){
+                $model->jatuhTempo = Carbon::parse($model->created_at)->addMonth(6)->format('d M Y');
+            }elseif($model->cicilan_id == 2) {
+                $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(1)->format('d M Y');
+            }elseif($model->cicilan_id == 3) {
+                $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(2)->format('d M Y');
+            }else{
+                $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(3)->format('d M Y');
+            }
+
             $namaJaminan = time(). '.' .$request->jaminan->extension();
             $request->jaminan->move(public_path('storage/jaminan'), $namaJaminan);
             $model->jaminan = $namaJaminan;
@@ -77,6 +104,16 @@ class LaravelController extends Controller
             $model->tanggal_lahir = $request->tanggal_lahir;
             $model->hutang = $request->hutang;
             $model->cicilan_id = $request->cicilan_id;
+
+            if($model->cicilan_id == 1){
+                $model->jatuhTempo = Carbon::parse($model->created_at)->addMonth(6)->format('d M Y');
+            }elseif($model->cicilan_id == 2) {
+                $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(1)->format('d M Y');
+            }elseif($model->cicilan_id == 3) {
+                $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(2)->format('d M Y');
+            }else{
+                $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(3)->format('d M Y');
+            }
         }
         
         $model->save();

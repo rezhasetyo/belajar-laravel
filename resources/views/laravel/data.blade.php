@@ -26,7 +26,7 @@
                 <td>{{ $value->nama }}</td>
                 <td>{{ $value->alamat }}</td>
                 <td>{{ showDateTime3($value -> created_at) }}</td>
-                <td></td>
+                <td>{{ $value -> jatuhTempo }}</td>
                 <td>@currency($value->hutang)</td>
                 <td>{{ $value->cicilan->waktu }}</td>
                 <td align="center">
