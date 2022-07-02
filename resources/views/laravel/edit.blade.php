@@ -22,9 +22,9 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="tanggal_lahir">Tanggal Lahir</label>
-                <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control" 
-                placeholder="Inputkan Tanggal Lahir" value="{{ $model->tanggal_lahir }}">
+                <label for="tanggal_hutang">Tanggal Hutang</label>
+                <input type="date" id="tanggal_hutang" name="tanggal_hutang" class="form-control" 
+                value="{{ $model->tanggal_hutang }}">
             </div>
             <div class="form-group">
                 <label for="alamat">Alamat</label>
