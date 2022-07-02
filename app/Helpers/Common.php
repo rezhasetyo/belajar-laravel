@@ -11,7 +11,3 @@ function showDateTime2($carbon, $format = "l, d F Y"){
 function showDateTime3($carbon, $format = "d M Y"){
     return $carbon -> translatedFormat($format);
 }
-
-function showDateTime4($carbon, $format = "d/m/Y"){
-    return $carbon -> $format;
-}

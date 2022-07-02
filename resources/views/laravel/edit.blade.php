@@ -22,19 +22,14 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="tanggal_hutang">Tanggal Hutang</label>
-                <input type="date" id="tanggal_hutang" name="tanggal_hutang" class="form-control" 
-                value="{{ $model->tanggal_hutang }}">
-            </div>
-            <div class="form-group">
                 <label for="alamat">Alamat</label>
                 <textarea class="form-control" name="alamat" rows="2" 
                 placeholder="Inputkan Alamat Lengkap">{{ $model->alamat }}</textarea>
             </div>
             <div class="form-group">
-                <label for="hutang">Hutang Berapa?</label>
-                <input type="text" value="{{ $model->hutang }}" class="form-control" name="hutang" 
-                placeholder="Jumlah Hutang" >
+                <label for="tanggal_hutang">Tanggal Hutang</label>
+                <input type="date" id="tanggal_hutang" name="tanggal_hutang" class="form-control" 
+                value="{{ $model->tanggal_hutang }}">
             </div>
             <div class="form-group">
                 <label for="cicilan_id"> Cicilan Paket</label>
@@ -50,7 +45,12 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="hutang">Upload Jaminan</label><br>
+                <label for="hutang">Hutang Berapa?</label>
+                <input type="text" value="{{ $model->hutang }}" class="form-control" name="hutang" 
+                placeholder="Jumlah Hutang" >
+            </div>
+            <div class="form-group">
+                <label for="jaminan">Upload Jaminan</label><br>
                 <img src="{{asset('storage/jaminan/'. $model->jaminan)}}" style="height:300px;">
                 <input type="file" name="jaminan" class="form-control">
             </div>

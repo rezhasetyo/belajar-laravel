@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Hutang;
 use Carbon\Carbon;
@@ -54,6 +55,7 @@ class LaravelController extends Controller
         return redirect('laravel');
     }
 
+
     public function show($id){
         //
     }
@@ -84,6 +86,7 @@ class LaravelController extends Controller
                 $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addYear(3)->timestamp;
             }
 
+            Storage::delete('public/jaminan/'.$model->jaminan);
             $namaJaminan = time(). '.' .$request->jaminan->extension();
             $request->jaminan->move(public_path('storage/jaminan'), $namaJaminan);
             $model->jaminan = $namaJaminan;
@@ -111,8 +114,10 @@ class LaravelController extends Controller
         return redirect('laravel');
     }
 
+
     public function destroy($id){
         $model = Hutang::find($id);
+        Storage::delete('public/jaminan/'.$model->jaminan);
         $model->delete();
         Alert::warning('Sukses', 'Berhasil Menghapus Data');
         return redirect('laravel');

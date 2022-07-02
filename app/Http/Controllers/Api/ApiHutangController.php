@@ -100,7 +100,7 @@ class ApiHutangController extends Controller
     }
 
     public function destroy(Hutang $hutang)     {
-        Storage::delete('public/hutang/'.$hutang->jaminan);
+        Storage::delete('public/jaminan/'.$hutang->jaminan);
         $hutang->delete();
         return new HutangResource(true, 'Data Hutang Berhasil Dihapus!', null);
     }
