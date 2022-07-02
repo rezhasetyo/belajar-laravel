@@ -25,7 +25,7 @@
                 <td scope="row" >{{ $loop->iteration }}</td>
                 <td>{{ $value->nama }}</td>
                 <td>{{ $value->alamat }}</td>
-                <td>{{ showDateTime3($value -> created_at) }}</td>
+                <td>{{ showDateTime3($value -> tanggal_hutang) }}</td>
                 <td>{{ showDateTime3($value -> jatuhTempo) }}</td>
                 <td>@currency($value->hutang)</td>
                 <td>{{ $value->cicilan->waktu }}</td>

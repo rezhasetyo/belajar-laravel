@@ -115,16 +115,6 @@ class LaravelController extends Controller
             $model->hutang = $request->hutang;
             $model->cicilan_id = $request->cicilan_id;
 
-            if($model->cicilan_id == 1){
-                $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addMonth(6)->timestamp;
-            }elseif($model->cicilan_id == 2) {
-                $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addYear(1)->timestamp;
-            }elseif($model->cicilan_id == 3) {
-                $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addYear(2)->timestamp;
-            }else{
-                $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addYear(3)->timestamp;
-            }
-
             Storage::delete('public/jaminan/'.$model->jaminan);
             $namaJaminan = time(). '.' .$request->jaminan->extension();
             $request->jaminan->move(public_path('storage/jaminan'), $namaJaminan);
@@ -136,16 +126,16 @@ class LaravelController extends Controller
             $model->tanggal_hutang = $request->tanggal_hutang;
             $model->hutang = $request->hutang;
             $model->cicilan_id = $request->cicilan_id;
+        }
 
-            if($model->cicilan_id == 1){
-                $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addMonth(6)->timestamp;
-            }elseif($model->cicilan_id == 2) {
-                $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addYear(1)->timestamp;
-            }elseif($model->cicilan_id == 3) {
-                $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addYear(2)->timestamp;
-            }else{
-                $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addYear(3)->timestamp;
-            }
+        if($model->cicilan_id == 1){
+            $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addMonth(6)->timestamp;
+        }elseif($model->cicilan_id == 2) {
+            $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addYear(1)->timestamp;
+        }elseif($model->cicilan_id == 3) {
+            $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addYear(2)->timestamp;
+        }else{
+            $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addYear(3)->timestamp;
         }
         
         $model->save();

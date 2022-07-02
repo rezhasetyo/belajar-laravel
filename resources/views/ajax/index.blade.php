@@ -99,7 +99,7 @@
                 // {data: 'DT_RowIndex',name: 'DT_RowIndex'},
                 {data: 'nama',name: 'nama'},
                 {data: 'jenis_kelamin',name: 'jenis_kelamin'},
-                {data: 'tanggal_lahir',name: 'tanggal_lahir'},
+                {data: 'tanggal_hutang',name: 'tanggal_hutang'},
                 {data: 'alamat',name: 'alamat'},
                 {data: 'hutang',name: 'hutang' }
                 ],
