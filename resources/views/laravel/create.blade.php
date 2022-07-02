@@ -21,7 +21,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="tanggal_hutang">Tanggal Lahir</label>
+                <label for="tanggal_hutang">Tanggal Hutang</label>
                 <input type="date" id="tanggal_hutang" name="tanggal_hutang" class="form-control">
             </div>
             <div class="form-group">
