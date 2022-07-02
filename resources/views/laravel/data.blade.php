@@ -32,9 +32,6 @@
                 <td align="center">
                     <form action="{{ url('laravel/'.$value->id) }}" method="POST">
                     @csrf
-                        <!-- Button Detail -->
-                        <a class="btn btn-success btn-sm" href="#">Detail</a>
-
                         <!-- Button Edit -->
                         <a class="btn btn-info btn-sm" href="{{ url( 'laravel/' .$value->id. '/edit' ) }}">Edit</a>
 

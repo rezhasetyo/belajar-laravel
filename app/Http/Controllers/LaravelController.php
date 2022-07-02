@@ -28,6 +28,27 @@ class LaravelController extends Controller
     }
 
     public function store(Request $request){
+        $request->validate([
+            'nama' => 'required',
+            'jenis_kelamin' => 'required',
+            'alamat' => 'required',
+            'tanggal_hutang' => 'required',
+            'cicilan_id' => 'required',
+            'jaminan' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'hutang' => 'required|numeric',
+          ],[
+            'nama.required' => 'Nama harus diisi !',
+            'jenis_kelamin.required' => 'Jenis Kelamin harus diisi !',
+            'alamat.required' => 'Alamat harus diisi !',
+            'tanggal_hutang.required' => 'Tanggal Hutang harus diisi !',
+            'cicilan_id.required' => 'Cicilan harus diisi !',
+            'hutang.required' => 'Hutang harus diisi !',
+            'jaminan.required' => 'Jaminan harus diisi !',
+            'jaminan.image' => 'Format gambar harus jpeg,png,jpg,gif,svg!',
+            'jaminan.mimes' => 'Format gambar harus jpeg,png,jpg,gif,svg! ',
+            'jaminan.max' => 'Maksimal ukuran gambar adalah 2 MB !',
+        ]);
+
         $model = new Hutang;
         $model->nama = $request->nama;
         $model->jenis_kelamin = $request->jenis_kelamin;
@@ -41,13 +62,13 @@ class LaravelController extends Controller
         $model->jaminan = $namaJaminan;
 
         if($model->cicilan_id == 1){
-            $model->jatuhTempo = Carbon::parse($model->tangtanggal_hutang)->addMonth(6)->timestamp;
+            $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addMonth(6)->timestamp;
         }elseif($model->cicilan_id == 2) {
-            $model->jatuhTempo = Carbon::parse($model->tangtanggal_hutang)->addYear(1)->timestamp;
+            $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addYear(1)->timestamp;
         }elseif($model->cicilan_id == 3) {
-            $model->jatuhTempo = Carbon::parse($model->tangtanggal_hutang)->addYear(2)->timestamp;
+            $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addYear(2)->timestamp;
         }else{
-            $model->jatuhTempo = Carbon::parse($model->tangtanggal_hutang)->addYear(3)->timestamp;
+            $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addYear(3)->timestamp;
         }
 
         $model->save();
@@ -56,17 +77,35 @@ class LaravelController extends Controller
     }
 
 
-    public function show($id){
-        //
-    }
-
     public function edit($id){
         $model = Hutang::find($id);
         $cicilan = DB::table('cicilan')->get();
         return view('laravel.edit', compact('model', 'cicilan'));
     }
     
-    public function update(Request $request, $id){   
+
+    public function update(Request $request, $id){
+        $request->validate([
+            'nama' => 'required',
+            'jenis_kelamin' => 'required',
+            'alamat' => 'required',
+            'tanggal_hutang' => 'required',
+            'cicilan_id' => 'required',
+            'jaminan' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'hutang' => 'required|numeric',
+          ],[
+            'nama.required' => 'Nama harus diisi !',
+            'jenis_kelamin.required' => 'Jenis Kelamin harus diisi !',
+            'alamat.required' => 'Alamat harus diisi !',
+            'tanggal_hutang.required' => 'Tanggal Hutang harus diisi !',
+            'cicilan_id.required' => 'Cicilan harus diisi !',
+            'hutang.required' => 'Hutang harus diisi !',
+            'jaminan.image' => 'Format gambar harus jpeg,png,jpg,gif,svg!',
+            'jaminan.mimes' => 'Format gambar harus jpeg,png,jpg,gif,svg! ',
+            'jaminan.max' => 'Maksimal ukuran gambar adalah 2 MB !',
+        ]);
+
+
         $model = Hutang::find($id);
         if($request->has('jaminan')){
             $model->nama = $request->nama;

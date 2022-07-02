@@ -20,7 +20,7 @@ use App\Http\Controllers\AdminController;
 
 Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('/laravel', LaravelController::class);
+Route::resource('/laravel', LaravelController::class)->except('show');
 // Route::get('/', function () {    return view('welcome'); });
 
 // Route hutang -> AJAX
