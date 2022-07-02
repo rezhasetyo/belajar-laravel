@@ -11,6 +11,7 @@ class Hutang extends Model
     protected $table = "hutang";
     protected $fillable = ['nama', 'alamat', 'tanggal_lahir', 'jenis_kelamin',
                         'hutang', 'jaminan', 'cicilan_id', 'jatuhTempo'];
+    protected $dates = ['jatuhTempo'];
 
     // Relasi One to Many
     public function cicilan() {

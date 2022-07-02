@@ -39,24 +39,14 @@ class LaravelController extends Controller
         $request->jaminan->move(public_path('storage/jaminan'), $namaJaminan);
         $model->jaminan = $namaJaminan;
 
-        // if($model->cicilan_id == 1){
-        //     $model->jatuhTempo = Carbon::now()->addMonth(6);
-        // }elseif($model->cicilan_id == 2) {
-        //     $model->jatuhTempo = Carbon::now()->addYear(1);
-        // }elseif($model->cicilan_id == 3) {
-        //     $model->jatuhTempo = Carbon::now()->addYear(2);
-        // }else{
-        //     $model->jatuhTempo = Carbon::now()->addYear(3);
-        // }
-
         if($model->cicilan_id == 1){
-            $model->jatuhTempo = Carbon::parse($model->created_at)->addMonth(6)->format('d M Y');
+            $model->jatuhTempo = Carbon::parse($model->created_at)->addMonth(6)->timestamp;
         }elseif($model->cicilan_id == 2) {
-            $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(1)->format('d M Y');
+            $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(1)->timestamp;
         }elseif($model->cicilan_id == 3) {
-            $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(2)->format('d M Y');
+            $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(2)->timestamp;
         }else{
-            $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(3)->format('d M Y');
+            $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(3)->timestamp;
         }
 
         $model->save();
@@ -85,13 +75,13 @@ class LaravelController extends Controller
             $model->cicilan_id = $request->cicilan_id;
 
             if($model->cicilan_id == 1){
-                $model->jatuhTempo = Carbon::parse($model->created_at)->addMonth(6)->format('d M Y');
+                $model->jatuhTempo = Carbon::parse($model->created_at)->addMonth(6)->timestamp;
             }elseif($model->cicilan_id == 2) {
-                $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(1)->format('d M Y');
+                $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(1)->timestamp;
             }elseif($model->cicilan_id == 3) {
-                $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(2)->format('d M Y');
+                $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(2)->timestamp;
             }else{
-                $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(3)->format('d M Y');
+                $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(3)->timestamp;
             }
 
             $namaJaminan = time(). '.' .$request->jaminan->extension();
@@ -106,13 +96,13 @@ class LaravelController extends Controller
             $model->cicilan_id = $request->cicilan_id;
 
             if($model->cicilan_id == 1){
-                $model->jatuhTempo = Carbon::parse($model->created_at)->addMonth(6)->format('d M Y');
+                $model->jatuhTempo = Carbon::parse($model->created_at)->addMonth(6)->timestamp;
             }elseif($model->cicilan_id == 2) {
-                $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(1)->format('d M Y');
+                $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(1)->timestamp;
             }elseif($model->cicilan_id == 3) {
-                $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(2)->format('d M Y');
+                $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(2)->timestamp;
             }else{
-                $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(3)->format('d M Y');
+                $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(3)->timestamp;
             }
         }
         

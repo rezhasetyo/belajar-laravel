@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Hutang;
+use Carbon\Carbon;
 use Faker\Factory as Faker;
 
 class HutangSeeder extends Seeder
@@ -28,10 +29,10 @@ class HutangSeeder extends Seeder
                                                             '7000', '8000', '9000', '10000']),
                         'cicilan_id' => $faker->randomElement([1, 2, 3, 4]),
                         'jaminan' => $faker->randomElement(['ktp.jpg', 'ktp.jpg']),
+                        'jatuhTempo'=>date('Y-m-d H:i:s'),
                         'created_at'=>date('Y-m-d H:i:s'),
                         'updated_at'=>date('Y-m-d H:i:s')]);
                     }
-    }
-
-
-}
+                                  
+    }   // Public Function Run
+} // Class HutangSeeder
