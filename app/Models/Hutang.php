@@ -9,7 +9,7 @@ class Hutang extends Model
 {
     use HasFactory;
     protected $table = "hutang";
-    protected $fillable = ['nama', 'alamat', 'tanggal_lahir', 'jenis_kelamin',
+    protected $fillable = ['nama', 'alamat', 'tanggal_hutang', 'jenis_kelamin',
                         'hutang', 'jaminan', 'cicilan_id', 'jatuhTempo'];
     protected $dates = ['jatuhTempo'];
 

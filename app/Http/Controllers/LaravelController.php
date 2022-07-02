@@ -31,7 +31,7 @@ class LaravelController extends Controller
         $model->nama = $request->nama;
         $model->jenis_kelamin = $request->jenis_kelamin;
         $model->alamat = $request->alamat;
-        $model->tanggal_lahir = $request->tanggal_lahir;
+        $model->tanggal_hutang = $request->tanggal_hutang;
         $model->hutang = $request->hutang;
         $model->cicilan_id = $request->cicilan_id;
 
@@ -40,13 +40,13 @@ class LaravelController extends Controller
         $model->jaminan = $namaJaminan;
 
         if($model->cicilan_id == 1){
-            $model->jatuhTempo = Carbon::parse($model->created_at)->addMonth(6)->timestamp;
+            $model->jatuhTempo = Carbon::parse($model->tangtanggal_hutang)->addMonth(6)->timestamp;
         }elseif($model->cicilan_id == 2) {
-            $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(1)->timestamp;
+            $model->jatuhTempo = Carbon::parse($model->tangtanggal_hutang)->addYear(1)->timestamp;
         }elseif($model->cicilan_id == 3) {
-            $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(2)->timestamp;
+            $model->jatuhTempo = Carbon::parse($model->tangtanggal_hutang)->addYear(2)->timestamp;
         }else{
-            $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(3)->timestamp;
+            $model->jatuhTempo = Carbon::parse($model->tangtanggal_hutang)->addYear(3)->timestamp;
         }
 
         $model->save();
@@ -70,18 +70,18 @@ class LaravelController extends Controller
             $model->nama = $request->nama;
             $model->jenis_kelamin = $request->jenis_kelamin;
             $model->alamat = $request->alamat;
-            $model->tanggal_lahir = $request->tanggal_lahir;
+            $model->tanggal_hutang = $request->tanggal_hutang;
             $model->hutang = $request->hutang;
             $model->cicilan_id = $request->cicilan_id;
 
             if($model->cicilan_id == 1){
-                $model->jatuhTempo = Carbon::parse($model->created_at)->addMonth(6)->timestamp;
+                $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addMonth(6)->timestamp;
             }elseif($model->cicilan_id == 2) {
-                $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(1)->timestamp;
+                $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addYear(1)->timestamp;
             }elseif($model->cicilan_id == 3) {
-                $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(2)->timestamp;
+                $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addYear(2)->timestamp;
             }else{
-                $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(3)->timestamp;
+                $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addYear(3)->timestamp;
             }
 
             $namaJaminan = time(). '.' .$request->jaminan->extension();
@@ -91,18 +91,18 @@ class LaravelController extends Controller
             $model->nama = $request->nama;
             $model->jenis_kelamin = $request->jenis_kelamin;
             $model->alamat = $request->alamat;
-            $model->tanggal_lahir = $request->tanggal_lahir;
+            $model->tanggal_hutang = $request->tanggal_hutang;
             $model->hutang = $request->hutang;
             $model->cicilan_id = $request->cicilan_id;
 
             if($model->cicilan_id == 1){
-                $model->jatuhTempo = Carbon::parse($model->created_at)->addMonth(6)->timestamp;
+                $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addMonth(6)->timestamp;
             }elseif($model->cicilan_id == 2) {
-                $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(1)->timestamp;
+                $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addYear(1)->timestamp;
             }elseif($model->cicilan_id == 3) {
-                $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(2)->timestamp;
+                $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addYear(2)->timestamp;
             }else{
-                $model->jatuhTempo = Carbon::parse($model->created_at)->addYear(3)->timestamp;
+                $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addYear(3)->timestamp;
             }
         }
         

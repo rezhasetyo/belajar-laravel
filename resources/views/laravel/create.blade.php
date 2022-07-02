@@ -21,9 +21,8 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="tanggal_lahir">Tanggal Lahir</label>
-                <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control" 
-                placeholder="Inputkan Tanggal Lahir">
+                <label for="tanggal_hutang">Tanggal Lahir</label>
+                <input type="date" id="tanggal_hutang" name="tanggal_hutang" class="form-control">
             </div>
             <div class="form-group">
                 <label for="alamat">Alamat</label>
