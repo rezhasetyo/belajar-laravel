@@ -1,11 +1,24 @@
 @extends('jumbotron/template')
-@section('content')
 
+@push('css')
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"> 
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css"> 
+@endpush
+
+@section('content')
 <div class="jumbotron">
 <div class="col-10">
     <br><h3 style="text-align:center;">Daftar Hutang</h3>
-    <a href="{{ url('laravel/create') }}" class="btn btn-primary float-right mb-2">Tambah</a>
-    <table class="table table-light mt-4">
+    <div>
+            <div class="text-left mb-2">
+              <a href="{{ url('laravel/create') }}">
+              <button class="btn btn-primary">
+                    Tambah Hutang
+                </button>
+              </a>
+            </div>
+        </div>
+    <table id="example1" class="table table-light mt-4">
         <thead class="table-dark">
             <tr>
                 <th scope="col">#</th>
@@ -15,14 +28,15 @@
                 <th scope="col">Jatuh Tempo</th>
                 <th scope="col" style="width:10%">Hutang</th>
                 <th scope="col">Cicilan</th>
-                <th scope="col" style="width:20%;" ><div align="center">Aksi</div></th>
+                <th scope="col" style="width:13%;" ><div align="center">Aksi</div></th>
             </tr>
         </thead>
         
         <tbody>
             @foreach($datas as $key=>$value)
             <tr>
-                <td scope="row" >{{ $loop->iteration }}</td>
+                <!-- <td scope="row" >{{ $loop->iteration }}</td> -->
+                <td>{{ $value->id }}</td>
                 <td>{{ $value->nama }}</td>
                 <td>{{ $value->alamat }}</td>
                 <td>{{ showDateTime3($value -> tanggal_hutang) }}</td>
@@ -72,17 +86,17 @@
   </div>
 </div>
 @endforeach
-
-
 </div>
 </div>
-
-
-
-
-
-
-
-
-
 @endsection
+
+@push('javascript')
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+<script>
+   $(function () {
+        $("#example1").DataTable();
+    });
+</script>
+@endpush

@@ -18,11 +18,11 @@ class HutangSeeder extends Seeder
     {
     //    factory(App\Hutang::class, 20)->create();
             $faker = Faker::create();
-                for ($i=1; $i <= 20; $i++) { 
+                for ($i=1; $i <= 200; $i++) { 
                     \DB::table('hutang')->insert([
                         'nama' => $faker->name(),
                         'alamat' => $faker->streetAddress(),
-                        'tanggal_lahir' => $faker->dateTime(),
+                        'tanggal_hutang' => $faker->dateTime(),
                         'jenis_kelamin' => $faker->randomElement(['Laki-laki', 'Perempuan']),
                         // 'hutang'=>$faker->numberBetween($min = 5000, $max = 10000),
                         'hutang' => $faker->randomElement(['3000', '4000', '5000', '6000', 

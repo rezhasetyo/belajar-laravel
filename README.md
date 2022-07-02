@@ -5,7 +5,11 @@
 <br>
 
 <p><b>Seeding Database</b></p>
+<p><u>User</u></p>
 <p>Email : rezha@gmail.com</p>
+<p>Password : rahasia123</p>
+<p><u>Admin</u></p>
+<p>Email : admin@gmail.com</p>
 <p>Password : rahasia123</p>
 <br>
 
