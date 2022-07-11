@@ -25,10 +25,10 @@
                     <ul class="navbar-nav mr-auto">
                       <ul class="navbar-nav mr-auto">
                           <li class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
+                            <a class="nav-link" href="{{url('/')}}">Home</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="/laravel">Data</a>
+                            <a class="nav-link" href="{{url('/laravel')}}">Data</a>
                           </li>
                           <!-- <li class="nav-item">
                             <a class="nav-link" href="/hutang">Jquery</a>
@@ -36,8 +36,8 @@
                           <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lainnya</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown01">
-                              <a class="dropdown-item" href="/user">Admin</a>
-                              <a class="dropdown-item" href="/api/hutang">API</a>
+                              <a class="dropdown-item" href="{{url('/user')}}">Admin</a>
+                              <a class="dropdown-item" href="{{url('/api/hutang')}}">API</a>
                             </div>
                           </li>
                         </ul>

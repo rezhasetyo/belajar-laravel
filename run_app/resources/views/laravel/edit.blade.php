@@ -97,7 +97,7 @@
             @enderror
       
       <button type="submit" class="btn btn-primary">Submit</button>
-      <a href="/laravel"><button type="button" class="btn btn-danger">Batal</button></a>
+      <a href="{{ url('laravel') }}"><button type="button" class="btn btn-danger">Batal</button></a>
     </form>
     </div>
   </div>
