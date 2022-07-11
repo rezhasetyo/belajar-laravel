@@ -19,9 +19,9 @@ use App\Http\Controllers\AdminController;
 */
 
 Auth::routes();
+// Route::get('/', function () {    return view('welcome'); });
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('/laravel', LaravelController::class)->except('show');
-// Route::get('/', function () {    return view('welcome'); });
 
 // Route hutang -> AJAX
 Route::get('/hutang', [HutangController::class, 'index'])->name('ajax.index');          // name adalah route di jquery

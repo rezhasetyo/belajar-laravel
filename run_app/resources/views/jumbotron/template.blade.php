@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- ICON -->
-    <link href="{{ asset('laravel.ico') }}" rel="SHORTCUT ICON"/>
+    <link href="{{ asset('template/images/laravel.ico') }}" rel="SHORTCUT ICON"/>
 
     <!-- Menyisipkan Bootstrap -->
     <link rel="stylesheet" href="{{asset('template')}}/css/bootstrap.min.css" />

@@ -1,0 +1,200 @@
+/* CSS HEADER */
+
+.headerlog{
+    background-color: rgb(122, 187, 139);
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    padding: 20px 0px;
+}
+header a{
+    float: inherit;
+    color: rgb(15, 10, 10);
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 35px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+body{
+    background-color: rgb(255, 255, 255);
+    margin: 0px;
+}
+.wrap{
+    width: 100%;
+    height: 25px auto;
+}
+nav.menu ul{
+    overflow: hidden;
+    color: #fff;
+    list-style: none;
+    float: right;
+    padding-right: 20px;
+    width: 800px;
+    margin-right: 0;
+    background-color: rgb(122, 187, 139);
+}
+nav.menu ul li{
+    margin: 0px;
+    float: right;
+}
+nav.menu ul a{
+    padding: 25px;
+    display: block;
+    color: #fff;
+    transition: all 0.5 ease;
+    text-decoration: none;
+    text-transform: none;
+}
+
+
+/* CSS BAGIAN FORM*/
+.kotak{
+    border-radius: 25px;
+    width: 350px;
+    background: #ddd;
+    padding: 20px 20px;
+    margin: 80px auto;
+}
+.tulisan{
+    text-transform: uppercase;
+    font-size: 16pt;
+    font-family: sans-serif;
+    text-align: center;
+    margin: 10px auto;
+}
+.form_sign[type=text], input[type=password] {
+    box-sizing: border-box;
+    border-radius: 25px;
+    width: 100%;
+    padding: 10px;
+    font-size: 12pt;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    display: inline-block;
+    background: #f1f1f1;
+}
+.form_sign[type=text]:focus, input[type=password]:focus{
+    background-color: #ddd;
+    transition: 0.5s;
+    outline: none;
+}
+.label{
+    font-family: sans-serif;
+    margin: 20px auto;
+}
+
+/* CSS LOGIN */
+.tbl_login{
+    cursor: pointer;
+    background: rgb(18, 199, 66);
+    color: #fff;
+    font-size: 12pt;
+    width: 100%;
+    padding: 10px 10px;
+    border-radius: 25px;
+    border: none;
+}
+
+/* CSS REGISTER */
+.registerbtn{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    font-size: 12pt;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: greenyellow;
+    border-radius: 25px;
+    border: none;
+}
+
+/* DASHBOARD */
+.judul{
+    padding: 20px;
+    text-align: center;
+    color: azure;
+    background-color: rgb(122, 187, 139);
+    margin-bottom: -20px;
+}
+.test{
+    color: rgb(255, 255, 255);
+    background-color: rgb(187, 223, 173);
+}
+.test a{
+    float: right;
+    margin-right: 20px;
+}
+.test h3{
+    margin-left: 20px;
+}
+.link{
+    text-decoration: none;
+    color: white;
+    display: inline;
+}
+.font{
+    font-size: 20px;
+}
+.SubJdl{
+    text-align: center;
+    margin-top: 50px;
+    color: rgb(142, 161, 139);
+}
+.container{
+    float: left;
+    border: 1px solid rgba(0, 0, 0, 0.089);
+    margin-left: 70px;
+    margin-bottom: 30px;
+    margin-top: 60px;
+    padding: 30px;
+    padding-top: 90px;
+    width: 18rem;
+    height: 18rem;
+    background-color: rgb(252, 255, 251);
+}
+#look_btn{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    background-color: #2F74D0;
+    color: white;
+}
+.container1{
+    float: center;
+    border: 1px solid rgba(0, 0, 0, 0.089);
+    padding: 50px;
+    padding-top: 90px;
+    padding-bottom: 150px;
+    width: 18rem;
+    height: 18rem;
+    background-color: rgb(252, 255, 251);
+}
+#back_btn{
+    margin-top: 12px;
+    margin-bottom: 18px;
+    background-color: rgb(121, 173, 135);
+    color: white;
+    width: 290px;
+    height: 35px;
+}
+.container2{
+    float: right;
+    border: 1px solid rgba(0, 0, 0, 0.089);
+    margin-right: 70px;
+    margin-bottom: 30px;
+    margin-top: 60px;
+    padding: 30px;
+    padding-top: 90px;
+    width: 18rem;
+    height: 18rem;
+    background-color: rgb(252, 255, 251);
+}
+.images{
+    width: 65%;
+}
+
+
