@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Hutang;
 use Carbon\Carbon;
 use App\Http\Resources\HutangResource;
-use Illuminate\Support\Facades\Storage;
+// use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class ApiHutangController extends Controller
@@ -52,8 +52,9 @@ class ApiHutangController extends Controller
             $model->hutang = $request->hutang;
             $model->cicilan_id = $request->cicilan_id;
             // Upload Image
+            $path = 'webImages/jaminan';
             $namaJaminan = time(). '.' .$request->jaminan->extension();
-            $request->jaminan->move(public_path('storage/jaminan'), $namaJaminan);
+            $request->jaminan->move($path, $namaJaminan);
             $model->jaminan = $namaJaminan;
             // Hitung jatuhTempo use Carbon
                 if($model->cicilan_id == 1){
@@ -109,9 +110,9 @@ class ApiHutangController extends Controller
             $model->hutang = $request->hutang;
             $model->cicilan_id = $request->cicilan_id;
 
-            Storage::delete('public/jaminan/'.$model->jaminan);
+            $path = 'webImages/jaminan';
             $namaJaminan = time(). '.' .$request->jaminan->extension();
-            $request->jaminan->move(public_path('storage/jaminan'), $namaJaminan);
+            $request->jaminan->move($path, $namaJaminan);
             $model->jaminan = $namaJaminan;
         }else{
             $model->nama = $request->nama;
@@ -138,7 +139,6 @@ class ApiHutangController extends Controller
     }
 
     public function destroy(Hutang $hutang)     {
-        Storage::delete('public/jaminan/'.$hutang->jaminan);
         $hutang->delete();
         return new HutangResource(true, 'Data Hutang Berhasil Dihapus!', null);
     }

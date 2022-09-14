@@ -57,8 +57,9 @@ class LaravelController extends Controller
         $model->hutang = $request->hutang;
         $model->cicilan_id = $request->cicilan_id;
 
+        $path = 'webImages/jaminan';
         $namaJaminan = time(). '.' .$request->jaminan->extension();
-        $request->jaminan->move(public_path('storage/jaminan'), $namaJaminan);
+        $request->jaminan->move($path, $namaJaminan);
         $model->jaminan = $namaJaminan;
 
         if($model->cicilan_id == 1){
@@ -115,9 +116,9 @@ class LaravelController extends Controller
             $model->hutang = $request->hutang;
             $model->cicilan_id = $request->cicilan_id;
 
-            Storage::delete('public/jaminan/'.$model->jaminan);
+            $path = 'webImages/jaminan';
             $namaJaminan = time(). '.' .$request->jaminan->extension();
-            $request->jaminan->move(public_path('storage/jaminan'), $namaJaminan);
+            $request->jaminan->move($path, $namaJaminan);
             $model->jaminan = $namaJaminan;
         }else{
             $model->nama = $request->nama;
