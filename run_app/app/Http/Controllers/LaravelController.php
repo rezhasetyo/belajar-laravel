@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Hutang;
 use Carbon\Carbon;
@@ -116,6 +115,8 @@ class LaravelController extends Controller
             $model->hutang = $request->hutang;
             $model->cicilan_id = $request->cicilan_id;
 
+            File::delete('webImages/jaminan/'. $model->jaminan);
+
             $path = 'webImages/jaminan';
             $namaJaminan = time(). '.' .$request->jaminan->extension();
             $request->jaminan->move($path, $namaJaminan);
@@ -147,7 +148,7 @@ class LaravelController extends Controller
 
     public function destroy($id){
         $model = Hutang::find($id);
-        Storage::delete('public/jaminan/'.$model->jaminan);
+        File::delete('webImages/jaminan/'. $model->jaminan);
         $model->delete();
         Alert::warning('Sukses', 'Berhasil Menghapus Data');
         return redirect('laravel');
