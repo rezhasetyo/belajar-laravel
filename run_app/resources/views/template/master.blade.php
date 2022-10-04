@@ -36,8 +36,8 @@
                           <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lainnya</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown01">
-                              <a class="dropdown-item" href="{{url('/user')}}">Admin</a>
-                              <a class="dropdown-item" href="{{url('/api/hutang')}}">API</a>
+                              <a class="dropdown-item" href="{{url('/user')}}">Role Admin</a>
+                              <a class="dropdown-item" href="{{url('/api/hutang')}}">API Hutang</a>
                             </div>
                           </li>
                         </ul>

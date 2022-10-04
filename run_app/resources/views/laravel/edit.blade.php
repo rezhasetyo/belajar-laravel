@@ -1,4 +1,4 @@
-@extends('jumbotron/template')
+@extends('template/master')
 
 @section('content')
 <div class="jumbotron">

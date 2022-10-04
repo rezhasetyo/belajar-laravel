@@ -1,4 +1,4 @@
-@extends('jumbotron/template')
+@extends('template/master')
 
 @section('content')
 <div class="jumbotron">
@@ -15,7 +15,7 @@
                     @endif
     <div class="panel-body">
       Check admin view:
-      <a href="{{route('admin')}}">Admin View</a>
+      <a href="{{route('admin')}}">Klik</a>
     </div>
 </div>
 

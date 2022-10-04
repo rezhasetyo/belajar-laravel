@@ -1,4 +1,4 @@
-@extends('jumbotron/template')
+@extends('template/master')
 
 @section('content')
 <div class="jumbotron">
@@ -8,6 +8,6 @@
         <p>ini adalah komponen <strong>jumbotron</strong> yang ada pada bootstrap</p><br>
          <a class="btn btn-success btn-lg" href="{{ url('laravel/create') }}" role="button">Tambah Data</a>
          <br>    
-        <a class="btn btn-info btn-lg mt-3" href="/laravel" role="button">Daftar Hutang</a>
+        <a class="btn btn-info btn-lg mt-3" href="{{ url('/bayar') }}" role="button">Bayar Hutang</a>
     </div>
 @endsection

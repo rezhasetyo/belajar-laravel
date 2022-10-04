@@ -36,3 +36,6 @@ Route::get('/user', [AdminController::class, 'index'])->name('user');
 Route::group(['middleware' => ['admin']], function () {
     Route::get('admin', [AdminController::class, 'admin'])->name('admin');
  });
+
+ // Routes Bayar Hutang (Payment Gateway)
+ Route::get('/bayar', function () { return view('bayar.index'); });
