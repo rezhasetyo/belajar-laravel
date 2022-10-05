@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HutangController;
-use App\Http\Controllers\LaravelController;
-use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\YajraHutangController;
+use App\Http\Controllers\YajraArticleController;
 
 
 /*
@@ -21,15 +21,13 @@ use App\Http\Controllers\AdminController;
 
 Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('/laravel', LaravelController::class)->except('show');
+Route::resource('/hutang', HutangController::class)->except('show');
 
 // ROUTES DATATABLE YAJRA
-    // Route hutang -> AJAX
-        Route::get('/hutang', [HutangController::class, 'index'])->name('ajax.index');          // name adalah route di jquery
-        Route::get('/hutang/json', [HutangController::class, 'data'])->name('ajax.data');
+        Route::get('/yajra/hutang', [YajraHutangController::class, 'index'])->name('yajraHutang.index');          // name adalah route di jquery
     // Route Articles
-        Route::resource('articles', ArticleController::class);
-        Route::get('get-articles', [ArticleController::class, 'getArticles'])->name('get-articles');
+        Route::resource('/yajra/articles', YajraArticleController::class);
+        Route::get('get-articles', [YajraArticleController::class, 'getArticles'])->name('get-articles');
 
 // ROUTES MIDDLEWARE
 Route::get('/user', [AdminController::class, 'index'])->name('user');

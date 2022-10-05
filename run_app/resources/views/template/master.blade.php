@@ -28,7 +28,7 @@
                             <a class="nav-link" href="{{url('/')}}">Home</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="{{url('/laravel')}}">Data</a>
+                            <a class="nav-link" href="{{url('/hutang')}}">Data</a>
                           </li>
                           <!-- <li class="nav-item">
                             <a class="nav-link" href="/hutang">Jquery</a>

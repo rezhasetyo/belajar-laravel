@@ -6,7 +6,7 @@
         <p class="lead">Mari kita Belajar Framework Laravel</p>
         <hr class="my-4">
         <p>ini adalah komponen <strong>jumbotron</strong> yang ada pada bootstrap</p><br>
-         <a class="btn btn-success btn-lg" href="{{ url('laravel/create') }}" role="button">Tambah Data</a>
+         <a class="btn btn-success btn-lg" href="{{ url('hutang/create') }}" role="button">Tambah Data</a>
          <br>    
         <a class="btn btn-info btn-lg mt-3" href="{{ url('/bayar') }}" role="button">Bayar Hutang</a>
     </div>

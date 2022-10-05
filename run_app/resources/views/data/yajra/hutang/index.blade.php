@@ -94,7 +94,7 @@
             processing: true,
             serverSide: true,
             "order": [[ 0, "desc" ]],
-            ajax: '{!! route('ajax.index') !!}', // memanggil route yang menampilkan data json       // ganti 'index' setelah refac
+            ajax: '{!! route('yajraHutang.index') !!}', // memanggil route yang menampilkan data json       // ganti 'index' setelah refac
             columns: [ // mengambil & menampilkan kolom sesuai tabel database
                 // {data: 'DT_RowIndex',name: 'DT_RowIndex'},
                 {data: 'nama',name: 'nama'},
