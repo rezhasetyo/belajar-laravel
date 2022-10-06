@@ -56,8 +56,8 @@ class HutangController extends Controller
         $model->hutang = $request->hutang;
         $model->cicilan_id = $request->cicilan_id;
 
-        $path = 'webImages/jaminan';
-        $namaJaminan = time(). '.' .$request->jaminan->extension();
+        $path = 'web/images/jaminan';
+        $namaJaminan = 'Id(' .$model->id .').' .$request->jaminan->extension();
         $request->jaminan->move($path, $namaJaminan);
         $model->jaminan = $namaJaminan;
 
@@ -115,10 +115,10 @@ class HutangController extends Controller
             $model->hutang = $request->hutang;
             $model->cicilan_id = $request->cicilan_id;
 
-            File::delete('webImages/jaminan/'. $model->jaminan);
+            File::delete('web/images/jaminan/'. $model->jaminan);
 
-            $path = 'webImages/jaminan';
-            $namaJaminan = time(). '.' .$request->jaminan->extension();
+            $path = 'web/images/jaminan';
+            $namaJaminan = 'Id(' .$model->id .').' .$request->jaminan->extension();
             $request->jaminan->move($path, $namaJaminan);
             $model->jaminan = $namaJaminan;
         }else{
@@ -148,7 +148,7 @@ class HutangController extends Controller
 
     public function destroy($id){
         $model = Hutang::find($id);
-        File::delete('webImages/jaminan/'. $model->jaminan);
+        File::delete('web/images/jaminan/'. $model->jaminan);
         $model->delete();
         Alert::warning('Sukses', 'Berhasil Menghapus Data');
         return redirect('hutang');
