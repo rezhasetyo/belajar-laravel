@@ -21,7 +21,7 @@
     <table id="example1" class="table table-light mt-4">
         <thead class="table-dark">
             <tr>
-                <th scope="col">#</th>
+                <th scope="col">Id</th>
                 <th scope="col">Nama</th>
                 <th scope="col">Alamat</th>
                 <th scope="col">Tanggal Hutang</th>
@@ -35,7 +35,6 @@
         <tbody>
             @foreach($datas as $key=>$value)
             <tr>
-                <!-- <td scope="row" >{{ $loop->iteration }}</td> -->
                 <td>{{ $value->id }}</td>
                 <td>{{ $value->nama }}</td>
                 <td>{{ $value->alamat }}</td>

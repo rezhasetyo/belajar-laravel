@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HutangController;
 use App\Http\Controllers\StatusController;
+use App\Http\Controllers\BayarController;
 use App\Http\Controllers\YajraHutangController;
 use App\Http\Controllers\YajraArticleController;
 
@@ -38,4 +39,4 @@ Route::group(['middleware' => ['admin']], function () {
  });
 
  // Routes Bayar Hutang (Payment Gateway)
- Route::get('/bayar', function () { return view('bayar.index'); });
+ Route::get('/bayar', [BayarController::class, 'index']);

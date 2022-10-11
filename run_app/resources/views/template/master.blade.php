@@ -38,6 +38,7 @@
                             <div class="dropdown-menu" aria-labelledby="dropdown01">
                               <a class="dropdown-item" href="{{url('/user')}}">Status Akun</a>
                               <a class="dropdown-item" href="{{url('/api/hutang')}}">API Hutang</a>
+                              <a class="dropdown-item" href="{{url('/bayar')}}">Bayar Hutang</a>
                             </div>
                           </li>
                         </ul>
