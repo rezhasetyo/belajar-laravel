@@ -88,8 +88,7 @@
         <li class="nav-item active ml-4">
           <a class="nav-link font-weight-bold" href="/">Home</a>
         </li>
-       
-	   <!--Product-->
+        <!--Product-->
         <li class="nav-item active ml-4">
           <div class="btn-group">
             <button type="button" class="btn"><strong>Product</strong></button>
@@ -97,11 +96,79 @@
               <span class="sr-only">Toggle Dropdown</span>
             </button>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Tidak Ada Product, Toko Bangkrut</a>
+              <a class="dropdown-item" href="#">Scale</a>
+              <a class="dropdown-item" href="#">Custom</a>
+              <a class="dropdown-item" href="#">Brands</a>
             </div>
           </div>
         </li>
-	   
+        <!--Scale-->
+        <li class="nav-item active ml-4">
+          <div class="dropdown">
+            <a class="btn dropdown-toggle font-weight-bold" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Scale
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <div class="container" style="width:350px;">
+                <div class="row">
+                  <div class="col-md-6">
+                    <img class="ml-2" src="img/shfzio2.jpg" alt="Logo" style="height:200px;">
+                    <p>S.H. Figuart Kamen Rider Zi-O II</p>
+                  </div>
+                  <div class="col-md-6">
+                    <a class="dropdown-item disabled font-weight-bold" href="#">Scale</a>
+                    <a class="dropdown-item" href="#">Scale 1/2 Figure</a>
+                    <a class="dropdown-item" href="#">Scale 1/6 Figure</a>
+                    <a class="dropdown-item" href="#">Scale 1/12 Figure</a>
+                  </div>
+                </div>
+          </div>
+        </li>
+        <!--Custom-->
+        <li class="nav-item active ml-4">
+          <div class="dropdown">
+            <a class="btn dropdown-toggle font-weight-bold" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Custom
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <div class="container" style="width:350px;">
+                <div class="row">
+                  <div class="col-md-6">
+                    <img class="ml-3" src="img/grandistaluffy.jpg" alt="Logo" style="height:200px;">
+                    <p>Grandista Monkey D. Luffy</p>
+                  </div>
+                  <div class="col-md-6">
+                    <a class="dropdown-item disabled font-weight-bold" href="#">Gender</a>
+                    <a class="dropdown-item" href="#">Male</a>
+                    <a class="dropdown-item" href="#">Female</a>
+                  </div>
+                </div>
+          </div>
+        </li>
+        <!--brands-->
+        <li class="nav-item active ml-4">
+          <div class="dropdown">
+            <a class="btn dropdown-toggle font-weight-bold" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Brands
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <div class="container" style="width:350px;">
+                <div class="row">
+                  <div class="col-md-6">
+                    <img class="ml-3" src="img/figmacapt.jpg" alt="Logo" style="height:200px;">
+                    <p>Figma Captain America</p>
+                  </div>
+                  <div class="col-md-6">
+                    <a class="dropdown-item disabled font-weight-bold" href="#">Brands</a>
+                    <a class="dropdown-item" href="#">Grandista</a>
+                    <a class="dropdown-item" href="#">Ichiban Kuji</a>
+                    <a class="dropdown-item" href="#">Figma</a>
+                    <a class="dropdown-item" href="#">SH Figuart</a>
+                    <a class="dropdown-item" href="#">Funko</a>
+                  </div>
+                </div>
+          </div>
+        </li>
         <!--Data-->
         <li class="nav-item active ml-4">
           <div class="dropdown">

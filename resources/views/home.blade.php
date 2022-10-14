@@ -85,13 +85,80 @@
               <span class="sr-only">Toggle Dropdown</span>
             </button>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Tidak Ada Product, Toko Bangkrut</a>
+              <a class="dropdown-item" href="#">Scale</a>
+              <a class="dropdown-item" href="#">Custom</a>
+              <a class="dropdown-item" href="#">Brands</a>
             </div>
           </div>
         </li>
         <!--Scale-->
-       
-        <!--Service-->
+        <li class="nav-item active ml-4">
+          <div class="dropdown">
+            <a class="btn dropdown-toggle font-weight-bold" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Scale
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <div class="container" style="width:350px;">
+                <div class="row">
+                  <div class="col-md-6">
+                    <img class="ml-2" src="img/shfzio2.jpg" alt="Logo" style="height:200px;">
+                    <p>S.H. Figuart Kamen Rider Zi-O II</p>
+                  </div>
+                  <div class="col-md-6">
+                    <a class="dropdown-item disabled font-weight-bold" href="#">Scale</a>
+                    <a class="dropdown-item" href="#">Scale 1/2 Figure</a>
+                    <a class="dropdown-item" href="#">Scale 1/6 Figure</a>
+                    <a class="dropdown-item" href="#">Scale 1/12 Figure</a>
+                  </div>
+                </div>
+          </div>
+        </li>
+        <!--Custom-->
+        <li class="nav-item active ml-4">
+          <div class="dropdown">
+            <a class="btn dropdown-toggle font-weight-bold" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Custom
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <div class="container" style="width:350px;">
+                <div class="row">
+                  <div class="col-md-6">
+                    <img class="ml-3" src="img/grandistaluffy.jpg" alt="Logo" style="height:200px;">
+                    <p>Grandista Monkey D. Luffy</p>
+                  </div>
+                  <div class="col-md-6">
+                    <a class="dropdown-item disabled font-weight-bold" href="#">Gender</a>
+                    <a class="dropdown-item" href="#">Male</a>
+                    <a class="dropdown-item" href="#">Female</a>
+                  </div>
+                </div>
+          </div>
+        </li>
+        <!--brands-->
+        <li class="nav-item active ml-4">
+          <div class="dropdown">
+            <a class="btn dropdown-toggle font-weight-bold" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Brands
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <div class="container" style="width:350px;">
+                <div class="row">
+                  <div class="col-md-6">
+                    <img class="ml-3" src="img/figmacapt.jpg" alt="Logo" style="height:200px;">
+                    <p>Figma Captain America</p>
+                  </div>
+                  <div class="col-md-6">
+                    <a class="dropdown-item disabled font-weight-bold" href="#">Brands</a>
+                    <a class="dropdown-item" href="#">Grandista</a>
+                    <a class="dropdown-item" href="#">Ichiban Kuji</a>
+                    <a class="dropdown-item" href="#">Figma</a>
+                    <a class="dropdown-item" href="#">SH Figuart</a>
+                    <a class="dropdown-item" href="#">Funko</a>
+                  </div>
+                </div>
+          </div>
+        </li>
+        <!--Data-->
         <li class="nav-item active ml-4">
           <div class="dropdown">
             <a class="btn dropdown-toggle font-weight-bold" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -103,8 +170,7 @@
                     <a class="dropdown-item" href="/dataku">Dataku</a>
           </div>
         </li>
-		
-		 <!--Admin-->
+        <!--Admin-->
         <li class="nav-item active ml-4">
           <div class="dropdown">
             <a class="btn dropdown-toggle font-weight-bold" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -117,10 +183,7 @@
           </div>
         </li>
       </ul>
-		
-      </ul>
       
-	  
       <!--Login dan Signup-->
       <ul class="navbar-nav mr-4 ml-auto">
         <div class="dropdown">
@@ -145,13 +208,13 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="img/crlogan.jpg" class="d-block w-100" alt="logan">
+            <img src="img/crlogan.jpeg" class="d-block w-100" alt="logan">
           </div>
           <div class="carousel-item">
             <img src="img/crship.jpg" class="d-block w-100" alt="shipping">
           </div>
           <div class="carousel-item">
-            <img src="img/crdis.jpg" class="d-block w-100" alt="discount">
+            <img src="img/crdis.png" class="d-block w-100" alt="discount">
           </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -164,7 +227,6 @@
         </a>
       </div>
 
-
     <!--Container-->
     <div class="container-fluid" style="background-color:#f4f4f4;">
 
@@ -176,5 +238,4 @@
     </footer>
 
 </body>
-
 </html>
