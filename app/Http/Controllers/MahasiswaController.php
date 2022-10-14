@@ -6,6 +6,23 @@ use Illuminate\Http\Request;
 
 class MahasiswaController extends Controller
 {
+    public function form(){
+      return view('form-pendaftaran');
+    }
+
+    public function prosesform(Request $request){
+    $validatedData = $request->validate([
+        'nim'				=>	'required|size:8',
+        'nama'				=>	'required|min:3|max:50',
+        'email'				=>	'required|email',
+        'jenis_kelamin'		=>	'required|in:p,l',
+        'jurusan'			=>	'required',
+        'alamat'			=>	'required',
+    ]);
+
+        return view('prosesform',['data' => $request]);
+    }
+
     public function index(){
     	return view('home');
     }

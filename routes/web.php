@@ -2,12 +2,21 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\FileUploadController;
+
+Route::get('/', [MahasiswaController::class,'index']);
+Route::get('/form', [MahasiswaController::class,'form']);
+Route::post('/prosesform', [MahasiswaController::class,'prosesform']);
+Route::get('/upload', [FileUploadController::class,'upload']);
+Route::post('/prosesupload', [FileUploadController::class,'prosesupload']);
+
 
 Route::view('/', 'home');
 Route::view('/home', 'home');
 Route::view('/about', 'about');
 Route::view('/mahasiswa', 'mahasiswa');
 Route::view('/mahasiswacatch', 'mahasiswacatch');
+
 Route::view('/dataku', 'dataku', [
 	'nama' => ['Rezha Setyo Atmojo','Hanung Setiawan','Ki Joko Bodo',],
 	'alamat' => ['Los Angeles','Bodja','Singaraja'],

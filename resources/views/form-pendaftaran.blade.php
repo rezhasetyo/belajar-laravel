@@ -20,6 +20,10 @@
           .navbar button:hover{
             color: #f07749;
           }
+          .container{
+            margin-top: 20px;
+            margin-bottom: 20px;
+          }
           footer {
             text-align: center;
             padding: 3px;
@@ -77,21 +81,7 @@
         <li class="nav-item active ml-4">
           <a class="nav-link font-weight-bold" href="/">Home</a>
         </li>
-        <!--Product-->
-        <li class="nav-item active ml-4">
-          <div class="btn-group">
-            <button type="button" class="btn"><strong>Product</strong></button>
-            <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Tidak Ada Product, Toko Bangkrut</a>
-            </div>
-          </div>
-        </li>
-        <!--Scale-->
-       
-        <!--Service-->
+        <!--Data-->
         <li class="nav-item active ml-4">
           <div class="dropdown">
             <a class="btn dropdown-toggle font-weight-bold" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -103,8 +93,7 @@
                     <a class="dropdown-item" href="/dataku">Dataku</a>
           </div>
         </li>
-		
-		 <!--Admin-->
+        <!--Admin-->
         <li class="nav-item active ml-4">
           <div class="dropdown">
             <a class="btn dropdown-toggle font-weight-bold" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -116,7 +105,6 @@
                     <a class="dropdown-item" href="/admin/karyawan">Karyawan</a>
           </div>
         </li>
-
         <!--Blade-->
         <li class="nav-item active ml-4">
           <div class="dropdown">
@@ -130,7 +118,6 @@
                     <a class="dropdown-item" href="/glr">Gallery</a>
           </div>
         </li>
-
         <!--Form-->
         <li class="nav-item active ml-4">
           <div class="dropdown">
@@ -144,11 +131,6 @@
         </li>
       </ul>
       
-
-    </ul>
-	
-      
-	  
       <!--Login dan Signup-->
       <ul class="navbar-nav mr-4 ml-auto">
         <div class="dropdown">
@@ -164,38 +146,74 @@
     </nav>
 
 
-      <!--Carousel-->
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="img/crlogan.jpg" class="d-block w-100" alt="logan">
-          </div>
-          <div class="carousel-item">
-            <img src="img/crship.jpg" class="d-block w-100" alt="shipping">
-          </div>
-          <div class="carousel-item">
-            <img src="img/crdis.jpg" class="d-block w-100" alt="discount">
+    <!--Container-->
+    <div class="container pt-4 bg-white">
+        <div class="row">
+          <div class="col-md-8 col-xl-6">
+            <h2>Pendaftaran Mahasiswa</h2>
+            <hr>
+
+            @if ($errors->any())
+              <div class="alert alert-danger">
+                <ul class="mb-0">
+                  @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                  @endforeach
+                </ul>
+              </div>
+            @endif
+
+            <form action="{{url('/prosesform')}}" method="POST">
+              @csrf
+              <div class="form-group">
+                <label for="nim">NIM</label>
+                <input type="text" class="form-control" id="nim" name="nim">
+              </div>
+
+              <div class="form-group">
+                <label for="nama">Nama Lengkap</label>
+                <input type="text" class="form-control" id="nama" name="nama">
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" name="email">
+              </div>
+
+              <div class="form-group">
+                <label>Jenis Kelamin</label>
+                <div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="laki_laki" value="l">
+                    <label class="form-check-label" for="laki_laki">Laki-Laki</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="perempuan" value="p">
+                    <label class="form-check-label" for="perempuan">Perempuan</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="jurusan">Jurusan</label>
+                <select class="form-control" name="jurusan" id="jurusan">
+                  <option value="Teknik Informatika">Teknik Informatika</option>
+                  <option value="Sistem Informasi">Sistem Informasi</option>
+                  <option value="Ilmu Komputer">Ilmu Komputer</option>
+                  <option value="Teknik Komputer">Teknik Komputer</option>
+                  <option value="Teknik Telekomunikasi">Teknik Telekomunikasi</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="alamat">Alamat</label>
+                <textarea class="form-control" id="alamat" rows="3" name="alamat"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Daftar</button>
+            </form>
           </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-
-
-    <!--Container-->
-    <div class="container-fluid" style="background-color:#f4f4f4;">
-
     </div>
 
     <!--Footer-->
