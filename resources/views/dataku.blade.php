@@ -30,6 +30,13 @@
             background-color: white;
             color: black;
           }
+          a {
+            color: black;
+          }
+          a:hover{
+            color: #f07749;
+            text-decoration: none;
+          }
         </style>
     </head>
 <body>
@@ -81,7 +88,8 @@
         <li class="nav-item active ml-4">
           <a class="nav-link font-weight-bold" href="/">Home</a>
         </li>
-        <!--Product-->
+       
+	   <!--Product-->
         <li class="nav-item active ml-4">
           <div class="btn-group">
             <button type="button" class="btn"><strong>Product</strong></button>
@@ -93,9 +101,8 @@
             </div>
           </div>
         </li>
-        
-        
-        <!--Service-->
+	   
+        <!--Data-->
         <li class="nav-item active ml-4">
           <div class="dropdown">
             <a class="btn dropdown-toggle font-weight-bold" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -105,6 +112,18 @@
                     <a class="dropdown-item" href="/about">About</a>
                     <a class="dropdown-item" href="/mahasiswa">Mahasiswa</a>
                     <a class="dropdown-item" href="/dataku">Dataku</a>
+          </div>
+        </li>
+        <!--Admin-->
+        <li class="nav-item active ml-4">
+          <div class="dropdown">
+            <a class="btn dropdown-toggle font-weight-bold" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Admin
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="/admin/mahasiswa">Mahasiswa</a>
+                    <a class="dropdown-item" href="/admin/dosen">Dosen</a>
+                    <a class="dropdown-item" href="/admin/karyawan">Karyawan</a>
           </div>
         </li>
       </ul>
@@ -131,26 +150,34 @@
         <table class="table table-hover">
             <thead>
               <tr>
-                <th>Data</th>
-                <th>Isi Data</th>
+                <th>Nama</th>
+                <th>NIM</th>
+                <th>Alamat</th>
+                <th>Semester</th>
+                <th>Tahun Ajaran</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Nama Mahasiswa</td>
-                <td><?= $nama ?></td>
+                <td>{{$nama[0]}}</td>
+                <td><a href="/dataku/{{$nim[0]}}">{{$nim[0]}}</a></td>
+                <td>{{$alamat[0]}}</td>
+                <td>{{$semester}}</td>
+                <td>{{$ajaran}}</td>
               </tr>
               <tr>
-                <td>Alamat</td>
-                <td><?= $alamat ?></td>
+                <td>{{$nama[1]}}</td>
+                <td><a href="/dataku/{{$nim[1]}}">{{$nim[1]}}</a></td>
+                <td>{{$alamat[1]}}</td>
+                <td>{{$semester}}</td>
+                <td>{{$ajaran}}</td>
               </tr>
               <tr>
-                <td>Semester</td>
-                <td><?= $semester ?></td>
-              </tr>
-              <tr>
-                <td>NIM</td>
-                <td><?= $nim ?></td>
+                <td>{{$nama[2]}}</td>
+                <td><a href="/dataku/{{$nim[2]}}">{{$nim[2]}}</a></td>
+                <td>{{$alamat[2]}}</td>
+                <td>{{$semester}}</td>
+                <td>{{$ajaran}}</td>
               </tr>
             </tbody>
         </table>

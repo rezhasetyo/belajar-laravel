@@ -107,6 +107,20 @@
                     <a class="dropdown-item" href="/dataku">Dataku</a>
           </div>
         </li>
+		
+		 <!--Admin-->
+        <li class="nav-item active ml-4">
+          <div class="dropdown">
+            <a class="btn dropdown-toggle font-weight-bold" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Admin
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="/admin/mahasiswa">Mahasiswa</a>
+                    <a class="dropdown-item" href="/admin/dosen">Dosen</a>
+                    <a class="dropdown-item" href="/admin/karyawan">Karyawan</a>
+          </div>
+        </li>
+	  
       </ul>
       
       <!--Login dan Signup-->
