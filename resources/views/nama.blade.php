@@ -20,6 +20,10 @@
           .navbar button:hover{
             color: #f07749;
           }
+          .container{
+            margin-top: 20px;
+            margin-bottom: 20px;
+          }
           footer {
             text-align: center;
             padding: 3px;
@@ -73,7 +77,7 @@
     <!--Navigation bar 2-->
     <nav class="navbar navbar-expand-sm" style="background-color:white;color:black;">
       <ul class="navbar-nav mr-auto">
-        <!--Home-->
+                  <!--Home-->
         <li class="nav-item active ml-4">
           <a class="nav-link font-weight-bold" href="/">Home</a>
         </li>
@@ -130,10 +134,9 @@
                     <a class="dropdown-item" href="/glr">Gallery</a>
           </div>
         </li>
+
       </ul>
-	
       
-	  
       <!--Login dan Signup-->
       <ul class="navbar-nav mr-4 ml-auto">
         <div class="dropdown">
@@ -148,38 +151,72 @@
       </ul>
     </nav>
 
-
-      <!--Carousel-->
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="img/crlogan.jpg" class="d-block w-100" alt="logan">
-          </div>
-          <div class="carousel-item">
-            <img src="img/crship.jpg" class="d-block w-100" alt="shipping">
-          </div>
-          <div class="carousel-item">
-            <img src="img/crdis.jpg" class="d-block w-100" alt="discount">
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-
-
     <!--Container-->
-    <div class="container-fluid" style="background-color:#f4f4f4;">
+    <div class="container" style="background-color:white;">
+      <!--Pengkondisian 1-->
+        <h3>Pengkondisian 1</h3>
+        <h1 class="bg-dark px-3 py-1 text-white d-inline-block">{!! $nama !!}</h1>
+        <h1 class="bg-dark px-3 py-1 text-white d-inline-block">{!! $nilai !!}</h1>
+        <br>
+        <div class="alert alert-secondary d-inline-block">
+          <?php 
+          if (($nilai >= 0) and ($nilai < 50)){
+            echo "Maaf, anda tidak lulus";
+          }
+          else if (($nilai >= 50) and ($nilai <= 100)){
+            echo "Selamat, anda lulus";
+          }
+          ?> 
+          <br>
+        </div>
+      <!--Pengkondisian 2-->
+        <h3>Pengkondisian 2</h3>
+        <h1 class="bg-dark px-3 py-1 text-white d-inline-block">{{ $nama }}</h1>
+        <h1 class="bg-dark px-3 py-1 text-white d-inline-block">{{ $nilai }}</h1>
+        <br>
+        @switch($nilai)
+          @case(0)
+            <div class="alert alert-danger d-inline-block">Tidak ikut ujian</div>
+          @break
+          @case(75)
+            <div class="alert alert-success d-inline-block">Lumayan</div>
+          @break
+          @case(100)
+            <div class="alert alert-success d-inline-block">Sempurna</div>
+          @break
+          @default
+            <div class="alert alert-dark d-inline-block">Nilai tidak valid</div>
+        @endswitch
+        <br>
+      <!--Perulangan For-->
+        <h3>Perulangan For</h3>
+        @for($i=0; $i<5; $i++)
+        <div class="alert alert-info d-inline-block">
+          {{ $i }}
+        </div>
+        @endfor
+        <br>
+      <!--Perulangan While-->
+        <h3>Perulangan While</h3>
+        <?php $i=0; ?>
+        @while($i<5)
+        <div class="alert alert-info d-inline-block">
+          {{ $i }}
+        </div>
+        <?php $i++ ?>
+        @endwhile
+        <br>
+      <!--Perulangan Foreach-->
+        <h3>Perulangan Foreach</h3>
+        <h1 class="bg-dark px-3 py-1 text-white d-inline-block">{{$nama}}</h1>
+        <br>
+        @foreach($nilai1 as $val)
+        <div class="alert alert-info d-inline-block">
+          {{ $val }}
+        </div>
+        @endforeach
+        <br>
+      
 
     </div>
 

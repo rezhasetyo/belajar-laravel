@@ -20,6 +20,10 @@
           .navbar button:hover{
             color: #f07749;
           }
+          .container{
+            margin-top: 20px;
+            margin-bottom: 20px;
+          }
           footer {
             text-align: center;
             padding: 3px;
@@ -73,8 +77,8 @@
     <!--Navigation bar 2-->
     <nav class="navbar navbar-expand-sm" style="background-color:white;color:black;">
       <ul class="navbar-nav mr-auto">
-        <!--Home-->
-        <li class="nav-item active ml-4">
+               <!--Home-->
+               <li class="nav-item active ml-4">
           <a class="nav-link font-weight-bold" href="/">Home</a>
         </li>
         <!--Product-->
@@ -131,9 +135,7 @@
           </div>
         </li>
       </ul>
-	
       
-	  
       <!--Login dan Signup-->
       <ul class="navbar-nav mr-4 ml-auto">
         <div class="dropdown">
@@ -149,38 +151,20 @@
     </nav>
 
 
-      <!--Carousel-->
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="img/crlogan.jpg" class="d-block w-100" alt="logan">
-          </div>
-          <div class="carousel-item">
-            <img src="img/crship.jpg" class="d-block w-100" alt="shipping">
-          </div>
-          <div class="carousel-item">
-            <img src="img/crdis.jpg" class="d-block w-100" alt="discount">
+    <!--Container-->
+    <div class="container" style="background-color:white;">
+        <h1>Data Mahasiswa</h1>
+        <div class="row">
+          <div class="col-sm-8 col-md-6 m-auto">
+            <ol class="list-group">
+              @forelse($mhs as $val)
+                <li class="list-group-item">{{$val}}</li>
+              @empty
+                <div class="alert alert-dark d-inline-block">Tidak ada data</div>
+              @endforelse
+            </ol>
           </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-
-
-    <!--Container-->
-    <div class="container-fluid" style="background-color:#f4f4f4;">
-
     </div>
 
     <!--Footer-->

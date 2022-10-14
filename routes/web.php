@@ -54,3 +54,26 @@ Route::prefix('/admin')->group(function () {
 		echo "<h1>Daftar Karyawan</h1>";
 	});
 });
+
+Route::get('/nama',function(){
+	$nama = 'Rezha Setyo Atmojo';
+	$nilai = 75;
+	$nilai1 = [80,64,30,76,95];
+	return view('nama',compact('nama','nilai','nilai1'));
+});
+
+Route::get('/mhs',function(){
+	$arrMahasiswa = ["Kaisar Hirohito","Adolf Hitler",
+					"Joseph Stalin","Osas"];
+	return view('mhs')->with('mhs', $arrMahasiswa);
+});
+
+Route::get('/dsn',function(){
+	$arrDosen = ["Remus Lupin, M.M.","Prof. Albus Dumbledore, M.Farm.",
+				"Dr. Severus Snape","Dr. Voldemort, M.Kom."];
+	return view('dsn')->with('dsn', $arrDosen);
+});
+
+Route::get('/glr',function(){
+	return view('glr');
+});

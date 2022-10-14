@@ -126,6 +126,21 @@
                     <a class="dropdown-item" href="/admin/karyawan">Karyawan</a>
           </div>
         </li>
+
+        <!--Blade-->
+        <li class="nav-item active ml-4">
+          <div class="dropdown">
+            <a class="btn dropdown-toggle font-weight-bold" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Blade
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="/nama">Nama</a>
+                    <a class="dropdown-item" href="/mhs">Mahasiswa</a>
+                    <a class="dropdown-item" href="/dsn">Dosen</a>
+                    <a class="dropdown-item" href="/glr">Gallery</a>
+          </div>
+        </li>
+
       </ul>
       
       <!--Login dan Signup-->
