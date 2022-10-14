@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MahasiswaController;
 
 Route::view('/', 'home');
 Route::view('/home', 'home');
@@ -55,25 +56,10 @@ Route::prefix('/admin')->group(function () {
 	});
 });
 
-Route::get('/nama',function(){
-	$nama = 'Rezha Setyo Atmojo';
-	$nilai = 75;
-	$nilai1 = [80,64,30,76,95];
-	return view('nama',compact('nama','nilai','nilai1'));
-});
+Route::get('/nama', [MahasiswaController::class,'nama']);
 
-Route::get('/mhs',function(){
-	$arrMahasiswa = ["Kaisar Hirohito","Adolf Hitler",
-					"Joseph Stalin","Osas"];
-	return view('mhs')->with('mhs', $arrMahasiswa);
-});
+Route::get('/mhs', [MahasiswaController::class,'mhs']);
 
-Route::get('/dsn',function(){
-	$arrDosen = ["Remus Lupin, M.M.","Prof. Albus Dumbledore, M.Farm.",
-				"Dr. Severus Snape","Dr. Voldemort, M.Kom."];
-	return view('dsn')->with('dsn', $arrDosen);
-});
+Route::get('/dsn', [MahasiswaController::class,'dsn']);
 
-Route::get('/glr',function(){
-	return view('glr');
-});
+Route::get('/glr', [MahasiswaController::class,'glr']);
