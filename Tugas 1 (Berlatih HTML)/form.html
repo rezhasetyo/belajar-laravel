@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Form</title>
+</head>
+<body>
+    <h1>Buat Account Baru!</h1>
+    <h3>Sign Up Form</h3>
+    <form action="welcome.html">
+        <label>First Name :</label> <br>
+            <input type="text" size="30"> <br> <br>
+        <label>Last Name :</label> <br>
+            <input type="text" size="30"> <br> <br>
+        <label>Gender :</label> <br>
+            <input type="radio" value="gender_m" name="gender"> Male<br>
+            <input type="radio" value="gender_f" name="gender"> Female <br>
+            <input type="radio" value="gender_o" name="gender"> Other <br> <br>
+        <label>Nationally :</label><br>
+            <select name="negara">
+                <option value="ina">Indonesia</option>
+                <option value="kim">Korea Utara</option>
+                <option value="upi">Malaysia</option>
+            </select>  <br> <br>
+        <label>Language Spoken :</label> <br>
+            <input type="checkbox"> Bahasa Indonesia <br>
+            <input type="checkbox"> Bahasa Inggris<br>
+            <input type="checkbox"> Lainnya <br> <br>
+        <label>Bio :</label> <br>
+            <textarea name="bio" id="bio" cols="30" rows="10"></textarea>
+            <br> <br>
+            <button type="submit"> <b> Sign Up! </b> </button>
+    </form>
+</body>
+</html>

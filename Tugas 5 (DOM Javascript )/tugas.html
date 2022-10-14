@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Latihan DOM</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" 
+    integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand">Mini Ecommerce</a>
+            <form class="form-inline" id="formItem">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search"  id="keyword" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchItem">Search</button>
+            </form>
+            <button class="btn btn-primary" id="cart"><i class="fas fa-shopping-cart"></i>(0)</button>
+        </nav>
+
+        <div class="row">
+            <div class="row mt-2"  id="listBarang" >
+                <!-- ISI DIV DISINI     -->
+            </div>
+        </div>
+    
+    </div>
+
+
+    <script>
+        var items = [
+            ['001', 'Keyboard Logitek', 60000, 'Keyboard yang mantap untuk kantoran', 'logitek.jpg'], 
+            ['002', 'Keyboard MSI', 300000, 'Keyboard gaming MSI mekanik', 'msi.jpg'],
+            ['003', 'Mouse Genius', 50000, 'Mouse Genius biar lebih pinter', 'genius.jpg'],
+            ['004', 'Mouse Jerry', 30000, 'Mouse yang disukai kucing', 'jerry.png']
+        ]
+
+        // RELEASE 0 (Menampilkan Item Cards)
+            var listBarang = document.getElementById("listBarang")
+
+            function printItems(array){
+                var tampung = " "
+                for(var i = 0; i < array.length; i++){
+                    var currentItem = array[i]
+                    tampung += `<!-- Component Card dari Bootstrap --> 
+                                    <div class="card mx-3" style="width: 18rem;">
+                                        <img src="${currentItem[4]}" class="card-img-top" height="200px" width="200px" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title" id="itemName">${currentItem[1]}</h5>
+                                            <p class="card-text" id="itemDesc">${currentItem[3]}</p>
+                                            <p class="card-text">${currentItem[2]}</p>
+                                            <a href="#" class="btn btn-primary" onclick="addCart()" id="addCart">Tambahkan ke keranjang</a>
+                                        </div>
+                                    </div>`
+                    }
+                listBarang.innerHTML = tampung
+            }
+
+            var tampung = " "
+            for(var i = 0; i < items.length; i++){
+            //     tampung += `<!-- Component Card dari Bootstrap --> 
+            //                 <div class ="col-4 mt-2"> 
+            //                 <div class="card" style="width: 18rem;">
+            //                     <img src="${items[i][4]}" class="card-img-top" height="200px" width="200px" alt="...">
+            //                     <div class="card-body">
+            //                         <h5 class="card-title" id="itemName">${items[i][1]}</h5>
+            //                         <p class="card-text" id="itemDesc">${items[i][3]}</p>
+            //                         <p class="card-text">${items[i][2]}</p>
+            //                         <a href="#" class="btn btn-primary" id="addCart">Tambahkan ke keranjang</a>
+            //                     </div>
+            //                 </div>
+            //                 </div>`
+            // }
+                var currentItem = items[i]
+                tampung += `<!-- Component Card dari Bootstrap --> 
+                                <div class="card col-3 mt-4 mx-3" style="width: 18rem;">
+                                    <img src="${currentItem[4]}" class="card-img-top" height="200px" width="200px" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title" id="itemName">${currentItem[1]}</h5>
+                                        <p class="card-text" id="itemDesc">${currentItem[3]}</p>
+                                        <p class="card-text">${currentItem[2]}</p>
+                                        <a href="#" class="btn btn-primary" onclick="addCart()" id="addCart">Tambahkan ke keranjang</a>
+                                    </div>
+                                </div>`
+                }
+            listBarang.innerHTML = tampung
+        
+
+        // RELEASE 1
+        // 0. Tangkap  event sbmit dari formItem
+        // 1. Di dalam event handler, tangkap value dari input keyword
+        // 2. Filter array items menjadi array baru filteredItems
+        // 3. Tampilkan lagi card dengan filteredItems
+
+        // CARA FILTER
+            function filter(kataKunci){
+                var filteredItems = []
+                for (var j = 0; j < items.length; j++){
+                    var item = items[j]
+                    var namaItem = item[1]
+                    var isMatch = namaItem.toLowerCase().includes(kataKunci.toLowerCase())
+                    if (isMatch == true){
+                       filteredItems.push(item)
+                    }
+                 }
+            return filteredItems
+           }
+
+            var cekItem = filter("key")
+            console.log(cekItem)
+        
+            var formSearch = document.getElementById("formItem")
+            formSearch.addEventListener("submit", function(event){
+                event.preventDefault()      // Mencegah Reload
+                var keyword = document.getElementById("keyword").value  //.value untuk menangkap sebuah input
+                var terfilter = filter (keyword)
+                printItems(terfilter)
+                })
+
+
+            var inputSearch = document.getElementById("keyword")
+            inputSearch.addEventListener("keyup", function(event){
+                var value = event.target.value
+
+                var filterDenganKeyUp = filter(value)
+                printItems(filterDenganKeyUp)
+            })
+
+        
+        // RELEASE 2
+            var cart = document.getElementById("cart");
+            var carnumber = 0;
+            function addCart(){
+                carnumber++;
+                cart.innerHTML = `<i class="fas fa-shopping-cart"></i>(${carnumber})`;
+            }
+
+
+
+
+    </script>
+
+
+
+     <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script> -->
+</body>
+</html>
