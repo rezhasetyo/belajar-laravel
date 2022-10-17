@@ -38,5 +38,6 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('admin', [StatusController::class, 'admin'])->name('admin');
  });
 
- // Routes Bayar Hutang (Payment Gateway)
- Route::get('/bayar', [BayarController::class, 'index']);
+// Routes Bayar Hutang (Payment Gateway)
+Route::get('/bayar', [BayarController::class, 'index']);
+Route::get('/bayar/{id}', [BayarController::class, 'bayar']);

@@ -55,9 +55,11 @@ class HutangController extends Controller
         $model->tanggal_hutang = $request->tanggal_hutang;
         $model->hutang = $request->hutang;
         $model->cicilan_id = $request->cicilan_id;
+        $model->status = 'BELUM LUNAS';
 
         $path = 'web/images/jaminan';
-        $namaJaminan = 'Id(' .$model->id .').' .$request->jaminan->extension();
+        // $namaJaminan = 'Id(' .$model->id .').' .$request->jaminan->extension();
+        $namaJaminan = $model->nama .'(' .$model->hutang .').' .$request->jaminan->extension();
         $request->jaminan->move($path, $namaJaminan);
         $model->jaminan = $namaJaminan;
 
@@ -107,7 +109,7 @@ class HutangController extends Controller
 
 
         $model = Hutang::find($id);
-        if($request->has('jaminan')){
+        if($request->has(['jaminan' || 'nama' || 'hutang'])){
             $model->nama = $request->nama;
             $model->jenis_kelamin = $request->jenis_kelamin;
             $model->alamat = $request->alamat;
@@ -118,7 +120,8 @@ class HutangController extends Controller
             File::delete('web/images/jaminan/'. $model->jaminan);
 
             $path = 'web/images/jaminan';
-            $namaJaminan = 'Id(' .$model->id .').' .$request->jaminan->extension();
+            // $namaJaminan = 'Id(' .$model->id .').' .$request->jaminan->extension();
+            $namaJaminan = $model->nama .'(' .$model->hutang .').' .$request->jaminan->extension();
             $request->jaminan->move($path, $namaJaminan);
             $model->jaminan = $namaJaminan;
         }else{

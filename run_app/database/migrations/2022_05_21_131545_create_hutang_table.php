@@ -22,10 +22,12 @@ class CreateHutangTable extends Migration
             $table->string('jenis_kelamin');
             $table->bigInteger('hutang');
             $table->string('jaminan');
-            // $table->datetime('jatuhTempo');
             $table->date('jatuhTempo');
             $table->unsignedBigInteger('cicilan_id');     
             $table->foreign('cicilan_id')->references('id')->on('cicilan');
+            
+            $table->string('status');
+            $table->datetime('bayar_hutang')->nullable();
             $table->timestamps();
         });
     }
