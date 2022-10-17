@@ -27,7 +27,7 @@ class CreateHutangTable extends Migration
             $table->foreign('cicilan_id')->references('id')->on('cicilan');
             
             $table->string('status');
-            $table->datetime('bayar_hutang')->nullable();
+            $table->datetime('tanggal_bayar')->nullable();
             $table->timestamps();
         });
     }

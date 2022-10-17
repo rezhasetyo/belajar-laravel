@@ -21,7 +21,7 @@
             <p><b>Tanggal Bayar :</b>   
               @if ($model->tanggal_bayar == NULL) @else {{ showDateTime3($model->tanggal_bayar)}}
               @endif  </p>
-            <p><b>Status :</b>          {{ $model->status }}</p>
+            <p><b>Status :</b>          <B>{{ $model->status }}</B></p>
             <p><b>Jaminan :</b></p>
             <img class="form-control" src="{{asset('web/images/jaminan/'. $model->jaminan)}}" style="height:300px;">
         </div>
@@ -38,6 +38,7 @@
           <input type="hidden" name="json" id="json_callback">
           <input type="hidden" name="name" id="name" value="{{ Auth::user()->name }}">
           <input type="hidden" name="email" id="email" value="{{ Auth::user()->email }}">
+          <input type="hidden" name="id_hutang" id="id_hutang" value="{{ $model->id }}">
         </form>
        
     </div>

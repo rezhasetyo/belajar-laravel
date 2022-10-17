@@ -18,4 +18,7 @@ class Hutang extends Model
     // Relasi One to Many
     public function cicilan() {
         return $this->belongsTo(Cicilan::class);     }
+
+    public function pembayaran() {
+        return $this->hasMany(Pembayaran::class);      }
 }

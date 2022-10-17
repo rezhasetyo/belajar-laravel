@@ -39,6 +39,7 @@
                               <a class="dropdown-item" href="{{url('/user')}}">Status Akun</a>
                               <a class="dropdown-item" href="{{url('/api/hutang')}}">API Hutang</a>
                               <a class="dropdown-item" href="{{url('/bayar')}}">Bayar Hutang</a>
+                              <a class="dropdown-item" href="https://simulator.sandbox.midtrans.com/indomaret/index" target="_blank" rel="noopener noreferrer">Indomaret Simulator</a>
                             </div>
                           </li>
                         </ul>
