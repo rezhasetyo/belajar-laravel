@@ -54,12 +54,14 @@ class BayarController extends Controller{
             ),
         );
 
-
-        
         $snapToken = \Midtrans\Snap::getSnapToken($params);
 
         return view('data.bayar.bayar', compact('model'),
                         ['snap_token'=>$snapToken]);
+    }
+
+    public function payment_post(Request $request, $id){
+        return $request;
     }
 
 }

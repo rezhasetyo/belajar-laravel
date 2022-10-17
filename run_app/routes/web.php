@@ -41,3 +41,4 @@ Route::group(['middleware' => ['admin']], function () {
 // Routes Bayar Hutang (Payment Gateway)
 Route::get('/bayar', [BayarController::class, 'index']);
 Route::get('/bayar/{id}', [BayarController::class, 'bayar']);
+Route::post('bayar/payment_post/{id}', [BayarController::class, 'payment_post']);
