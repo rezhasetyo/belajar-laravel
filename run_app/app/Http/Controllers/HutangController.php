@@ -58,8 +58,7 @@ class HutangController extends Controller
         $model->status = 'BELUM LUNAS';
 
         $path = 'web/images/jaminan';
-        // $namaJaminan = 'Id(' .$model->id .').' .$request->jaminan->extension();
-        $namaJaminan = $model->nama .'(' .$model->hutang .').' .$request->jaminan->extension();
+        $namaJaminan = $request->id .'(' .$model->nama .').' .$request->jaminan->extension();     // Id tidak bisa di request
         $request->jaminan->move($path, $namaJaminan);
         $model->jaminan = $namaJaminan;
 
@@ -109,7 +108,7 @@ class HutangController extends Controller
 
 
         $model = Hutang::find($id);
-        if($request->has(['jaminan' || 'nama' || 'hutang'])){
+        if($request->has(['jaminan'])){
             $model->nama = $request->nama;
             $model->jenis_kelamin = $request->jenis_kelamin;
             $model->alamat = $request->alamat;
@@ -120,8 +119,7 @@ class HutangController extends Controller
             File::delete('web/images/jaminan/'. $model->jaminan);
 
             $path = 'web/images/jaminan';
-            // $namaJaminan = 'Id(' .$model->id .').' .$request->jaminan->extension();
-            $namaJaminan = $model->nama .'(' .$model->hutang .').' .$request->jaminan->extension();
+            $namaJaminan = $request->id .'(' .$model->nama .').' .$request->jaminan->extension();     // Id tidak bisa di request
             $request->jaminan->move($path, $namaJaminan);
             $model->jaminan = $namaJaminan;
         }else{
@@ -150,9 +148,10 @@ class HutangController extends Controller
 
 
     public function destroy($id){
-        $model = Hutang::find($id);
-        File::delete('web/images/jaminan/'. $model->jaminan);
-        $model->delete();
+        $hutang = Hutang::find($id);
+        $hutang->delete();
+
+        File::delete('web/images/jaminan/'. $hutang->jaminan);
         Alert::warning('Sukses', 'Berhasil Menghapus Data');
         return redirect('hutang');
     }

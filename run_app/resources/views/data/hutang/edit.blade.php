@@ -47,7 +47,7 @@
             <div class="form-group">
                 <label for="tanggal_hutang">Tanggal Hutang</label>
                 <input type="date" id="tanggal_hutang" name="tanggal_hutang" class="form-control" 
-                value="{{ $model->tanggal_hutang }}">
+                value="{{ showDateTime4($model->tanggal_hutang) }}">
             </div>
             @error('tanggal_hutang')
                 <div class="mb-3" style="color:red;">

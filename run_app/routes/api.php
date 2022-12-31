@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\AuthSanctumController;
+use App\Http\Controllers\Api\ApiAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +18,9 @@ use App\Http\Controllers\Api\AuthSanctumController;
 // Route::apiResource('/hutang', App\Http\Controllers\Api\ApiHutangController::class);
 
 // Api Auth Laravel Sanctum
-Route::post('/sanctum-register', [AuthSanctumController::class, 'register']);
-Route::post('/sanctum-login', [AuthSanctumController::class, 'login']);
+Route::post('/register', [ApiAuthController::class, 'register']);
+Route::post('/login', [ApiAuthController::class, 'login']);
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::apiResource('/sanctum-hutang', App\Http\Controllers\Api\ApiHutangController::class);
-    Route::post('/sanctum-logout', [AuthSanctumController::class, 'logout']);
+    Route::apiResource('/hutang', App\Http\Controllers\Api\ApiHutangController::class);
+    Route::post('/logout', [ApiAuthController::class, 'logout']);
 });

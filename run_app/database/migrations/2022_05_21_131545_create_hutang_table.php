@@ -14,7 +14,6 @@ class CreateHutangTable extends Migration
     public function up()
     {
         Schema::create('hutang', function (Blueprint $table) {
-            // $table->id();
             $table->increments('id');
             $table->string('nama');
             $table->text('alamat');
@@ -24,7 +23,7 @@ class CreateHutangTable extends Migration
             $table->string('jaminan');
             $table->date('jatuhTempo');
             $table->unsignedBigInteger('cicilan_id');     
-            $table->foreign('cicilan_id')->references('id')->on('cicilan');
+            $table->foreign('cicilan_id')->references('id')->on('cicilan')->onDelete('cascade');
             
             $table->string('status');
             $table->datetime('tanggal_bayar')->nullable();

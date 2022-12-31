@@ -1,7 +1,7 @@
 # Dokumentasi Belajar Framework Laravel
  
  ## Link Deploy Web
-<p>Link Demo : http://belajar-laravel-rezha.herokuapp.com</p>
+<p>Link Demo : https://laravel-rezha.000webhostapp.com/</p>
 <br>
 
 <p><b>Seeding Database</b></p>
@@ -13,6 +13,6 @@
 <p>Password : rahasia123</p>
 <br>
 
-<p><b>Link Dokumentasi API</b></p>
-<img src='template/images/postman.jpg' width="100%">
+<!-- <p><b>Link Dokumentasi API</b></p>
+<img src='template/images/postman.jpg' width="100%"> -->
 

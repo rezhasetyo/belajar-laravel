@@ -8,7 +8,7 @@ use Auth;
 use Validator;
 use App\Models\User;
 
-class AuthSanctumController extends Controller
+class ApiAuthController extends Controller
 {
     public function register(Request $request)  {
         $validator = Validator::make($request->all(),[
