@@ -15,12 +15,12 @@ use App\Http\Controllers\Api\ApiAuthController;
 |
 */
 
-// Route::apiResource('/hutang', App\Http\Controllers\Api\ApiHutangController::class);
+Route::apiResource('/hutang', App\Http\Controllers\Api\ApiHutangController::class);
 
 // Api Auth Laravel Sanctum
 Route::post('/register', [ApiAuthController::class, 'register']);
 Route::post('/login', [ApiAuthController::class, 'login']);
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::apiResource('/hutang', App\Http\Controllers\Api\ApiHutangController::class);
+    // Route::apiResource('/hutang', App\Http\Controllers\Api\ApiHutangController::class);
     Route::post('/logout', [ApiAuthController::class, 'logout']);
 });

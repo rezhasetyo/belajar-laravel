@@ -1,7 +1,7 @@
 # Dokumentasi Belajar Framework Laravel
  
  ## Link Deploy Web
-<p>Link Demo : https://laravel-rezha.000webhostapp.com/</p>
+<p>Link Demo : https://laravel-rezha.000webhostapp.com/-</p>
 <br>
 
 <p><b>Seeding Database</b></p>

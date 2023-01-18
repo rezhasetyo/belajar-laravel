@@ -7,17 +7,100 @@ use App\Http\Controllers\Controller;
 use App\Models\Hutang;
 use Carbon\Carbon;
 use App\Http\Resources\HutangResource;
-// use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
-class ApiHutangController extends Controller
-{
+/**
+ * @OA\Info(
+ *     description="Dokumentasi Api Daftar Hutang",
+ *     version="1.0.0",
+ *     title="Api Daftar Hutang",
+ * ),
+ * @OA\SecurityScheme(
+ *      securityScheme="bearerAuth",
+ *      in="header",
+ *      name="bearerAuth",
+ *      type="http",
+ *      scheme="bearer",
+ *      bearerFormat="JWT",
+ * )
+ */
+
+class ApiHutangController extends Controller    {   
+    /**
+    * @OA\GET(
+    *     path="/belajar-laravel/api/hutang",
+    *     tags={"Hutang"},
+    *     summary="Get Data Hutang",
+    *     operationId="index",
+    *     security={{"bearer":{}}},
+    *     @OA\Response(response=200,description="Get Data List as Array"),
+    *     @OA\Response(response=400, description="Bad request"),
+    *     @OA\Response(response=404, description="Resource Not Found"),
+    * )
+    */
     public function index()    {
         $hutang = Hutang::all();                                         //Get Hutang
         return new HutangResource(true, 'List Data Hutang', $hutang);    //Return Collection of Hutang as a Resource
     }
 
-       public function store(Request $request) {
+    /**
+     * @OA\Post(
+     *     path="/belajar-laravel/api/hutang",
+     *     tags={"Hutang"},
+     *     summary="Store Data Hutang",
+     *     operationId="store",
+     *
+     *     @OA\Response(
+     *         response=405,
+     *         description="Invalid input"
+     *     ),
+     *     @OA\RequestBody(
+     *         description="Input data format",
+     *         @OA\MediaType(
+     *             mediaType="multipart/form-data",
+     *             @OA\Schema(
+     *                 type="object",
+     *                 @OA\Property(
+     *                     property="nama",
+     *                     description="Inputkan Nama",
+     *                     type="string",
+     *                 ),
+     *                 @OA\Property(
+     *                     property="jenis_kelamin",
+     *                     description="Pilih Jenis Kelamin",
+     *                     type="string"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="alamat",
+     *                     description="Inputkan Alamat",
+     *                     type="string"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="tanggal_hutang",
+     *                     description="Inputkan Tanggal Hutang",
+     *                     type="date"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="hutang",
+     *                     description="Inputkan Jumlah Hutang",
+     *                     type="integer"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="cicilan_id",
+     *                     description="Pilih Jenis Cicilan",
+     *                     type="integer"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="jaminan",
+     *                     description="Upload Jaminan",
+     *                     type="file"
+     *                 ) 
+     *             )
+     *         )
+     *     )
+     * )
+     */
+    public function store(Request $request) {
         //Define Validation Rules
             $validator = Validator::make($request->all(), [
                 'nama'              => 'required',
@@ -51,6 +134,7 @@ class ApiHutangController extends Controller
             $model->tanggal_hutang = $request->tanggal_hutang;
             $model->hutang = $request->hutang;
             $model->cicilan_id = $request->cicilan_id;
+            $model->status = 'BELUM LUNAS';
             // Upload Image
             $path = 'webImages/jaminan';
             $namaJaminan = time(). '.' .$request->jaminan->extension();
@@ -66,15 +150,99 @@ class ApiHutangController extends Controller
                 }else{
                     $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addYear(3)->timestamp;
                 }
-            $model->save();
-
+        $model->save();
         return new HutangResource(true, 'Data Hutang Berhasil Ditambahkan!', $model);    //Return Response
     }
 
+    /**
+    * @OA\GET(
+    *     path="/belajar-laravel/api/hutang/{id}",
+    *     tags={"Hutang"},
+    *     summary="Get Data by Id",    
+    *     operationId="show",
+    *     security={{"bearer":{}}},
+    *     @OA\Parameter(
+    *        name="id",
+    *        in="path",
+    *        description="Inputkan Id Hutang",
+    *        required=true,
+    *     ),
+    *     @OA\Response(response=200,description="Get Data List as Array"),
+    *     @OA\Response(response=400, description="Bad request"),
+    *     @OA\Response(response=404, description="Resource Not Found"),
+    * )
+    */
     public function show(Hutang $hutang)    {
         return new HutangResource(true, 'Data Hutang Ditemukan!', $hutang);   //Return Single Post as a Resource
     }
 
+    /**
+     * @OA\Post(
+     *     path="/belajar-laravel/api/hutang/{id}",
+     *     tags={"Hutang"},
+     *     summary="Update Data Hutang",
+     *     operationId="update",
+    *     @OA\Parameter(
+    *        name="id",
+    *        in="path",
+    *        description="Inputkan Id Hutang",
+    *        required=true,
+    *     ),
+     *     @OA\Response(
+     *         response=405,
+     *         description="Invalid input"
+     *     ),
+     *     @OA\RequestBody(
+     *         description="Input data format",
+     *         @OA\MediaType(
+     *             mediaType="multipart/form-data",
+     *             @OA\Schema(
+     *                 type="object",
+     *                  @OA\Property(
+     *                     property="_method",
+     *                     description="JANGAN DIUBAH",
+     *                     example="PUT"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="nama",
+     *                     description="Inputkan Nama",
+     *                     type="string",
+     *                 ),
+     *                 @OA\Property(
+     *                     property="jenis_kelamin",
+     *                     description="Pilih Jenis Kelamin",
+     *                     type="string"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="alamat",
+     *                     description="Inputkan Alamat",
+     *                     type="string"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="tanggal_hutang",
+     *                     description="Inputkan Tanggal Hutang",
+     *                     type="date"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="hutang",
+     *                     description="Inputkan Jumlah Hutang",
+     *                     type="integer"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="cicilan_id",
+     *                     description="Pilih Jenis Cicilan",
+     *                     type="integer"
+     *                 ),
+     *                 @OA\Property(
+     *                     property="jaminan",
+     *                     description="Upload Jaminan",
+     *                     type="file"
+     *                 ) 
+     *             )
+     *         )
+     *     )
+     * )
+     */   
     public function update(Request $request, $id)    {
         $validator = Validator::make($request->all(), [
             'nama'              => 'required',
@@ -134,17 +302,29 @@ class ApiHutangController extends Controller
         }
         
         $model->save();
-
         return new HutangResource(true, 'Data Hutang Berhasil Diubah!', $model);
     }
 
+    /**
+    * @OA\Delete(
+    *     path="/belajar-laravel/api/hutang/{id}",
+    *     tags={"Hutang"},
+    *     summary="Destroy Data Hutang",    
+    *     operationId="destroy",
+    *     security={{"bearer":{}}},
+    *     @OA\Parameter(
+    *        name="id",
+    *        in="path",
+    *        description="Inputkan Id Hutang",
+    *        required=true,
+    *     ),
+    *     @OA\Response(response=200,description="Get Data List as Array"),
+    *     @OA\Response(response=400, description="Bad request"),
+    *     @OA\Response(response=404, description="Resource Not Found"),
+    * )
+    */
     public function destroy(Hutang $hutang)     {
         $hutang->delete();
         return new HutangResource(true, 'Data Hutang Berhasil Dihapus!', null);
     }
-
-
-
-
-
 }

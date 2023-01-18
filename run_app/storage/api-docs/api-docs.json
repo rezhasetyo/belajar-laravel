@@ -1,0 +1,310 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Api Daftar Hutang",
+        "description": "Dokumentasi Api Daftar Hutang",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/belajar-laravel/api/register": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Register User",
+                "description": "Register New User",
+                "operationId": "1ae02d0cc5ded760f9bf5a644c85cef7",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Jhon Doe"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "jhondoe@example.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Register New User Data"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/belajar-laravel/api/login": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Login (Authentitication)",
+                "operationId": "login",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "description": "Enter your email",
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "description": "Enter password",
+                                        "type": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/belajar-laravel/api/hutang": {
+            "get": {
+                "tags": [
+                    "Hutang"
+                ],
+                "summary": "Get Data Hutang",
+                "operationId": "index",
+                "responses": {
+                    "200": {
+                        "description": "Get Data List as Array"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Hutang"
+                ],
+                "summary": "Store Data Hutang",
+                "operationId": "store",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "nama": {
+                                        "description": "Inputkan Nama",
+                                        "type": "string"
+                                    },
+                                    "jenis_kelamin": {
+                                        "description": "Pilih Jenis Kelamin",
+                                        "type": "string"
+                                    },
+                                    "alamat": {
+                                        "description": "Inputkan Alamat",
+                                        "type": "string"
+                                    },
+                                    "tanggal_hutang": {
+                                        "description": "Inputkan Tanggal Hutang",
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "hutang": {
+                                        "description": "Inputkan Jumlah Hutang",
+                                        "type": "integer"
+                                    },
+                                    "cicilan_id": {
+                                        "description": "Pilih Jenis Cicilan",
+                                        "type": "integer"
+                                    },
+                                    "jaminan": {
+                                        "description": "Upload Jaminan",
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/belajar-laravel/api/hutang/{id}": {
+            "get": {
+                "tags": [
+                    "Hutang"
+                ],
+                "summary": "Get Data by Id",
+                "operationId": "show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Inputkan Id Hutang",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Data List as Array"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Hutang"
+                ],
+                "summary": "Update Data Hutang",
+                "operationId": "update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Inputkan Id Hutang",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "_method": {
+                                        "description": "JANGAN DIUBAH",
+                                        "example": "PUT"
+                                    },
+                                    "nama": {
+                                        "description": "Inputkan Nama",
+                                        "type": "string"
+                                    },
+                                    "jenis_kelamin": {
+                                        "description": "Pilih Jenis Kelamin",
+                                        "type": "string"
+                                    },
+                                    "alamat": {
+                                        "description": "Inputkan Alamat",
+                                        "type": "string"
+                                    },
+                                    "tanggal_hutang": {
+                                        "description": "Inputkan Tanggal Hutang",
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "hutang": {
+                                        "description": "Inputkan Jumlah Hutang",
+                                        "type": "integer"
+                                    },
+                                    "cicilan_id": {
+                                        "description": "Pilih Jenis Cicilan",
+                                        "type": "integer"
+                                    },
+                                    "jaminan": {
+                                        "description": "Upload Jaminan",
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Hutang"
+                ],
+                "summary": "Destroy Data Hutang",
+                "operationId": "destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Inputkan Id Hutang",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Data List as Array"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "bearerAuth",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    }
+}
