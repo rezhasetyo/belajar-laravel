@@ -13,6 +13,5 @@
 <p>Password : rahasia123</p>
 <br>
 
-<!-- <p><b>Link Dokumentasi API</b></p>
-<img src='template/images/postman.jpg' width="100%"> -->
-
+<p><b>Dokumentasi API</b></p>
+<img src='web/images/swagger.jpg' width="100%">

@@ -1,8 +1,8 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Api Daftar Hutang",
-        "description": "Dokumentasi Api Daftar Hutang",
+        "title": "Api Belajar Laravel",
+        "description": "Dokumentasi Api Belajar Laravel",
         "version": "1.0.0"
     },
     "paths": {
@@ -88,6 +88,64 @@
                 }
             }
         },
+        "/belajar-laravel/api/cicilan": {
+            "get": {
+                "tags": [
+                    "Cicilan"
+                ],
+                "summary": "Get Data Cicilan",
+                "operationId": "e019682c0addf691d2441419fe333d5f",
+                "responses": {
+                    "200": {
+                        "description": "Get Data List as Array"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/belajar-laravel/api/cicilan/{id}": {
+            "get": {
+                "tags": [
+                    "Cicilan"
+                ],
+                "summary": "Get Data by Id",
+                "operationId": "f1bceecc30c6826c2b82c57aa3b80713",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Inputkan Id Hutang",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get Data List by Id"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
         "/belajar-laravel/api/hutang": {
             "get": {
                 "tags": [
@@ -108,7 +166,7 @@
                 },
                 "security": [
                     {
-                        "bearer": []
+                        "sanctum": []
                     }
                 ]
             },
@@ -130,7 +188,11 @@
                                     },
                                     "jenis_kelamin": {
                                         "description": "Pilih Jenis Kelamin",
-                                        "type": "string"
+                                        "type": "string",
+                                        "enum": [
+                                            "Laki-laki",
+                                            "Perempuan"
+                                        ]
                                     },
                                     "alamat": {
                                         "description": "Inputkan Alamat",
@@ -139,14 +201,14 @@
                                     "tanggal_hutang": {
                                         "description": "Inputkan Tanggal Hutang",
                                         "type": "string",
-                                        "format": "date"
+                                        "example": "12-12-2012"
                                     },
                                     "hutang": {
                                         "description": "Inputkan Jumlah Hutang",
                                         "type": "integer"
                                     },
                                     "cicilan_id": {
-                                        "description": "Pilih Jenis Cicilan",
+                                        "description": "Inputkan Cicilan Id",
                                         "type": "integer"
                                     },
                                     "jaminan": {
@@ -163,7 +225,12 @@
                     "405": {
                         "description": "Invalid input"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             }
         },
         "/belajar-laravel/api/hutang/{id}": {
@@ -194,7 +261,7 @@
                 },
                 "security": [
                     {
-                        "bearer": []
+                        "sanctum": []
                     }
                 ]
             },
@@ -228,7 +295,11 @@
                                     },
                                     "jenis_kelamin": {
                                         "description": "Pilih Jenis Kelamin",
-                                        "type": "string"
+                                        "type": "string",
+                                        "enum": [
+                                            "Laki-laki",
+                                            "Perempuan"
+                                        ]
                                     },
                                     "alamat": {
                                         "description": "Inputkan Alamat",
@@ -237,7 +308,7 @@
                                     "tanggal_hutang": {
                                         "description": "Inputkan Tanggal Hutang",
                                         "type": "string",
-                                        "format": "date"
+                                        "example": "12-12-2012"
                                     },
                                     "hutang": {
                                         "description": "Inputkan Jumlah Hutang",
@@ -261,7 +332,12 @@
                     "405": {
                         "description": "Invalid input"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -290,7 +366,7 @@
                 },
                 "security": [
                     {
-                        "bearer": []
+                        "sanctum": []
                     }
                 ]
             }
@@ -298,11 +374,10 @@
     },
     "components": {
         "securitySchemes": {
-            "bearerAuth": {
+            "sanctum": {
                 "type": "http",
-                "name": "bearerAuth",
+                "name": "sanctum",
                 "in": "header",
-                "bearerFormat": "JWT",
                 "scheme": "bearer"
             }
         }

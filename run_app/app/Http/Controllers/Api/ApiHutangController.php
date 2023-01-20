@@ -6,23 +6,23 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Hutang;
 use Carbon\Carbon;
-use App\Http\Resources\HutangResource;
+use App\Http\Resources\ApiResource;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
 /**
  * @OA\Info(
- *     description="Dokumentasi Api Daftar Hutang",
+ *     description="Dokumentasi Api Belajar Laravel",
  *     version="1.0.0",
- *     title="Api Daftar Hutang",
+ *     title="Api Belajar Laravel",
  * ),
  * @OA\SecurityScheme(
- *      securityScheme="bearerAuth",
+ *      securityScheme="sanctum",
  *      in="header",
- *      name="bearerAuth",
+ *      name="sanctum",
  *      type="http",
  *      scheme="bearer",
- *      bearerFormat="JWT",
- * )
+ * ),
  */
 
 class ApiHutangController extends Controller    {   
@@ -32,7 +32,7 @@ class ApiHutangController extends Controller    {
     *     tags={"Hutang"},
     *     summary="Get Data Hutang",
     *     operationId="index",
-    *     security={{"bearer":{}}},
+    *     security={{"sanctum":{}}},
     *     @OA\Response(response=200,description="Get Data List as Array"),
     *     @OA\Response(response=400, description="Bad request"),
     *     @OA\Response(response=404, description="Resource Not Found"),
@@ -40,7 +40,7 @@ class ApiHutangController extends Controller    {
     */
     public function index()    {
         $hutang = Hutang::all();                                         //Get Hutang
-        return new HutangResource(true, 'List Data Hutang', $hutang);    //Return Collection of Hutang as a Resource
+        return new ApiResource(true, 'List Data Hutang', $hutang);    //Return Collection of Hutang as a Resource
     }
 
     /**
@@ -49,7 +49,7 @@ class ApiHutangController extends Controller    {
      *     tags={"Hutang"},
      *     summary="Store Data Hutang",
      *     operationId="store",
-     *
+     *     security={{"sanctum":{}}},
      *     @OA\Response(
      *         response=405,
      *         description="Invalid input"
@@ -68,7 +68,8 @@ class ApiHutangController extends Controller    {
      *                 @OA\Property(
      *                     property="jenis_kelamin",
      *                     description="Pilih Jenis Kelamin",
-     *                     type="string"
+     *                     type="string",
+     *                     enum={"Laki-laki", "Perempuan"}
      *                 ),
      *                 @OA\Property(
      *                     property="alamat",
@@ -78,7 +79,8 @@ class ApiHutangController extends Controller    {
      *                 @OA\Property(
      *                     property="tanggal_hutang",
      *                     description="Inputkan Tanggal Hutang",
-     *                     type="date"
+     *                     type="string",
+     *                     example="12-12-2012"
      *                 ),
      *                 @OA\Property(
      *                     property="hutang",
@@ -87,7 +89,7 @@ class ApiHutangController extends Controller    {
      *                 ),
      *                 @OA\Property(
      *                     property="cicilan_id",
-     *                     description="Pilih Jenis Cicilan",
+     *                     description="Inputkan Cicilan Id",
      *                     type="integer"
      *                 ),
      *                 @OA\Property(
@@ -97,7 +99,7 @@ class ApiHutangController extends Controller    {
      *                 ) 
      *             )
      *         )
-     *     )
+     *     ),
      * )
      */
     public function store(Request $request) {
@@ -136,7 +138,7 @@ class ApiHutangController extends Controller    {
             $model->cicilan_id = $request->cicilan_id;
             $model->status = 'BELUM LUNAS';
             // Upload Image
-            $path = 'webImages/jaminan';
+            $path = 'web/images/jaminan';
             $namaJaminan = time(). '.' .$request->jaminan->extension();
             $request->jaminan->move($path, $namaJaminan);
             $model->jaminan = $namaJaminan;
@@ -151,7 +153,7 @@ class ApiHutangController extends Controller    {
                     $model->jatuhTempo = Carbon::parse($model->tanggal_hutang)->addYear(3)->timestamp;
                 }
         $model->save();
-        return new HutangResource(true, 'Data Hutang Berhasil Ditambahkan!', $model);    //Return Response
+        return new ApiResource(true, 'Data Hutang Berhasil Ditambahkan!', $model);    //Return Response
     }
 
     /**
@@ -160,7 +162,7 @@ class ApiHutangController extends Controller    {
     *     tags={"Hutang"},
     *     summary="Get Data by Id",    
     *     operationId="show",
-    *     security={{"bearer":{}}},
+    *     security={{"sanctum":{}}},
     *     @OA\Parameter(
     *        name="id",
     *        in="path",
@@ -173,7 +175,7 @@ class ApiHutangController extends Controller    {
     * )
     */
     public function show(Hutang $hutang)    {
-        return new HutangResource(true, 'Data Hutang Ditemukan!', $hutang);   //Return Single Post as a Resource
+        return new ApiResource(true, 'Data Hutang Ditemukan!', $hutang);   //Return Single Post as a Resource
     }
 
     /**
@@ -182,12 +184,13 @@ class ApiHutangController extends Controller    {
      *     tags={"Hutang"},
      *     summary="Update Data Hutang",
      *     operationId="update",
-    *     @OA\Parameter(
-    *        name="id",
-    *        in="path",
-    *        description="Inputkan Id Hutang",
-    *        required=true,
-    *     ),
+     *     security={{"sanctum":{}}},
+     *     @OA\Parameter(
+     *        name="id",
+     *        in="path",
+     *        description="Inputkan Id Hutang",
+     *        required=true,
+     *     ),
      *     @OA\Response(
      *         response=405,
      *         description="Invalid input"
@@ -211,7 +214,8 @@ class ApiHutangController extends Controller    {
      *                 @OA\Property(
      *                     property="jenis_kelamin",
      *                     description="Pilih Jenis Kelamin",
-     *                     type="string"
+     *                     type="string",
+     *                     enum={"Laki-laki", "Perempuan"}
      *                 ),
      *                 @OA\Property(
      *                     property="alamat",
@@ -221,7 +225,8 @@ class ApiHutangController extends Controller    {
      *                 @OA\Property(
      *                     property="tanggal_hutang",
      *                     description="Inputkan Tanggal Hutang",
-     *                     type="date"
+     *                     type="string",
+     *                     example="12-12-2012"
      *                 ),
      *                 @OA\Property(
      *                     property="hutang",
@@ -277,8 +282,9 @@ class ApiHutangController extends Controller    {
             $model->tanggal_hutang = $request->tanggal_hutang;
             $model->hutang = $request->hutang;
             $model->cicilan_id = $request->cicilan_id;
-
-            $path = 'webImages/jaminan';
+            
+            File::delete('web/images/jaminan/'. $model->jaminan);
+            $path = 'web/images/jaminan';
             $namaJaminan = time(). '.' .$request->jaminan->extension();
             $request->jaminan->move($path, $namaJaminan);
             $model->jaminan = $namaJaminan;
@@ -302,7 +308,7 @@ class ApiHutangController extends Controller    {
         }
         
         $model->save();
-        return new HutangResource(true, 'Data Hutang Berhasil Diubah!', $model);
+        return new ApiResource(true, 'Data Hutang Berhasil Diubah!', $model);
     }
 
     /**
@@ -311,7 +317,7 @@ class ApiHutangController extends Controller    {
     *     tags={"Hutang"},
     *     summary="Destroy Data Hutang",    
     *     operationId="destroy",
-    *     security={{"bearer":{}}},
+    *     security={{"sanctum":{}}},
     *     @OA\Parameter(
     *        name="id",
     *        in="path",
@@ -325,6 +331,7 @@ class ApiHutangController extends Controller    {
     */
     public function destroy(Hutang $hutang)     {
         $hutang->delete();
-        return new HutangResource(true, 'Data Hutang Berhasil Dihapus!', null);
+        File::delete('web/images/jaminan/'. $hutang->jaminan);
+        return new ApiResource(true, 'Data Hutang Berhasil Dihapus!', null);
     }
 }
