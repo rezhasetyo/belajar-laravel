@@ -1,14 +1,14 @@
 # Dokumentasi Belajar Framework Laravel
  
  ## Link Deploy Web
-<p>Link Demo : https://laravel-rezha.000webhostapp.com/-</p>
+<p>Link Demo : https://laravel-rezha.000webhostapp.com</p>
 <br>
 
-<p><b>Seeding Database</b></p>
-<p><u>User</u></p>
+<!-- <p><b>Seeding Database</b></p> -->
+<p><b>User</b></p>
 <p>Email : rezha@gmail.com</p>
 <p>Password : rahasia123</p>
-<p><u>Admin</u></p>
+<p><b>Admin</b></p>
 <p>Email : admin@gmail.com</p>
 <p>Password : rahasia123</p>
 <br>
