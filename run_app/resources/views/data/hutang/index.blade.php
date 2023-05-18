@@ -10,7 +10,7 @@
     <br><h3 style="text-align:center;">Daftar Hutang</h3>
     <div>
             <div class="text-left mb-2">
-              <a href="{{ url('hutang/create') }}">
+              <a href="{{ route('hutang.form.tambah') }}">
               <button class="btn btn-primary">
                     Tambah Hutang
                 </button>
@@ -45,7 +45,7 @@
                     <form action="{{ url('hutang/'.$value->id) }}" method="POST">
                     @csrf
                         <!-- Button Edit -->
-                        <a class="btn btn-info btn-sm" href="{{ url( 'hutang/' .$value->id. '/edit' ) }}">Edit</a>
+                        <a class="btn btn-info btn-sm" href="{{ route('hutang.form.edit', ['id' => $value->id]) }}">Edit</a>
 
                         <!-- Button Modal Delete -->
                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal{{ $value->id }}">
@@ -73,10 +73,9 @@
         Apakah anda yakin ingin menghapus data ini?
       </div>
       <div class="modal-footer">
-        <form action="{{ url('hutang/'.$value->id) }}" method="POST">
+        <form action="{{ route('hutang.delete', ['id' => $value->id]) }}" method="POST">
         @csrf
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <input type="hidden" name="_method" value="Delete">
             <button class="btn btn-danger" type="submit">Delete</button>
         </form>
         </div>

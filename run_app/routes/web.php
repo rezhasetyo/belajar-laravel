@@ -21,24 +21,30 @@ use App\Http\Controllers\YajraArticleController;
 */
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('/hutang', HutangController::class)->except('show');
 
-// ROUTES DATATABLE YAJRA
-    Route::get('/yajra/hutang', [YajraHutangController::class, 'index'])->name('yajraHutang.index');          // name adalah route di jquery
-    // Route Articles
-        Route::resource('/yajra/articles', YajraArticleController::class);
-        Route::get('get-articles', [YajraArticleController::class, 'getArticles'])->name('get-articles');
+# Routes Crud Hutang
+Route::get('/hutang', [HutangController::class, 'index'])->name('hutang.home');
+Route::get('/hutang/tambah', [HutangController::class, 'form'])->name('hutang.form.tambah');
+Route::get('/hutang/edit/{id}', [HutangController::class, 'form'])->name('hutang.form.edit');
+Route::post('/hutang/save', [HutangController::class, 'save'])->name('hutang.save');
+Route::post('/hutang/delete/{id}', [HutangController::class, 'delete'])->name('hutang.delete');
 
-// ROUTES MIDDLEWARE
+# Routes Datatable Yajra
+Route::get('/yajra/hutang', [YajraHutangController::class, 'index'])->name('yajraHutang.index');
+Route::resource('/yajra/articles', YajraArticleController::class);
+Route::get('get-articles', [YajraArticleController::class, 'getArticles'])->name('get-articles');
+
+# Routes Verifikasi Email
 Auth::routes(['verify'=>true]);
 Route::get('/user', [StatusController::class, 'index'])->name('user');
 Route::get('/verif-email', [StatusController::class, 'verifEmail'])->name('verifEmail');
 
+# Routes Middleware Role
 Route::group(['middleware' => ['admin']], function () {
     Route::get('admin', [StatusController::class, 'admin'])->name('admin');
  });
 
-// Routes Bayar Hutang (Payment Gateway)
+// Routes Payment Gateway
 Route::get('/bayar', [BayarController::class, 'index']);
 Route::get('/bayar/{id}', [BayarController::class, 'bayar']);
 Route::post('bayar/payment_post/{id}', [BayarController::class, 'payment_post']);
